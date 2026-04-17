@@ -1,0 +1,209 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Usage/Vue" />
+
+# Using simple-blog-ui with Vue 3
+
+Vue has first-class support for Web Components, so you use the custom elements directly in templates — no wrapper layer needed.
+
+## Installation
+
+```bash
+npm install simple-blog-ui
+```
+
+## Setup
+
+### 1. Register custom elements
+
+In your app entry (usually `main.js`):
+
+```js
+import { createApp } from 'vue';
+import App from './App.vue';
+import 'simple-blog-ui';
+import 'simple-blog-ui/style.css';
+
+createApp(App).mount('#app');
+```
+
+### 2. Tell Vue to treat `sb-*` as custom elements
+
+Vue needs to know that `sb-*` tags aren't Vue components. Configure it in `vite.config.ts`:
+
+```ts
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+
+export default defineConfig({
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith('sb-'),
+        },
+      },
+    }),
+  ],
+});
+```
+
+Without this, Vue will warn about unknown components and may try to resolve them as Vue components.
+
+## Basic example
+
+```vue
+<script setup>
+import { ref } from 'vue';
+
+const email = ref('');
+
+function onLogin() {
+  console.log('login', email.value);
+}
+</script>
+
+<template>
+  <sb-card padding="lg" style="max-width: 420px;">
+    <span slot="header">Sign in</span>
+    <sb-stack gap="4">
+      <sb-input
+        label="Email"
+        placeholder="you@example.com"
+        @sb-input="email = $event.detail.value"
+      />
+      <sb-button variant="primary" @sb-click="onLogin">
+        Continue
+      </sb-button>
+    </sb-stack>
+  </sb-card>
+</template>
+```
+
+## Event handling
+
+Custom events use the `@sb-<name>` syntax in Vue templates. The event object is a `CustomEvent` — payload is at `$event.detail`.
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Vue directive</th>
+      <th align="left">Components</th>
+      <th align="left">Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>@sb-click</code></td>
+      <td>sb-button, sb-icon-button</td>
+      <td>no detail</td>
+    </tr>
+    <tr>
+      <td><code>@sb-input</code></td>
+      <td>sb-input, sb-textarea</td>
+      <td><code>{'{ value: string }'}</code></td>
+    </tr>
+    <tr>
+      <td><code>@sb-change</code></td>
+      <td>sb-input, sb-checkbox, sb-switch, sb-accordion</td>
+      <td><code>{'{ checked?: boolean, value?: string }'}</code></td>
+    </tr>
+    <tr>
+      <td><code>@sb-close</code></td>
+      <td>sb-modal, sb-offcanvas, sb-toast, sb-close-button</td>
+      <td>no detail</td>
+    </tr>
+    <tr>
+      <td><code>@sb-select</code></td>
+      <td>sb-dropdown, sb-list-group</td>
+      <td><code>{'{ id: string, item: object }'}</code></td>
+    </tr>
+    <tr>
+      <td><code>@sb-page-change</code></td>
+      <td>sb-pagination</td>
+      <td><code>{'{ page: number }'}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+## Boolean attributes and two-way binding
+
+Boolean attributes like `disabled`, `checked`, `open` map directly. For two-way-style binding on checkboxes/switches:
+
+```vue
+<script setup>
+import { ref } from 'vue';
+const darkMode = ref(false);
+</script>
+
+<template>
+  <sb-switch
+    :checked="darkMode"
+    @sb-change="darkMode = $event.detail.checked"
+  >
+    Dark mode
+  </sb-switch>
+</template>
+```
+
+For array/object properties (tabs, nav items, list-group items, etc.), use `.prop` modifier so Vue sets it as a JS property instead of an attribute:
+
+```vue
+<script setup>
+const tabs = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'install', label: 'Install' },
+];
+</script>
+
+<template>
+  <sb-tabs :tabs.prop="tabs">
+    <div slot="overview">Overview content.</div>
+    <div slot="install">Install content.</div>
+  </sb-tabs>
+</template>
+```
+
+## Modal and overlay triggers
+
+Get a reference to the element and call `show()` / `close()`:
+
+```vue
+<script setup>
+import { ref } from 'vue';
+
+const modal = ref(null);
+</script>
+
+<template>
+  <sb-button @sb-click="modal.show()">Open modal</sb-button>
+  <sb-modal ref="modal" title="Confirm">
+    <p>Are you sure?</p>
+    <sb-button slot="footer" @sb-click="modal.close()">Close</sb-button>
+  </sb-modal>
+</template>
+```
+
+## Nuxt 3
+
+Same setup, but put the import in a client-only plugin (custom elements only register in the browser):
+
+```ts
+// plugins/simple-blog-ui.client.ts
+import 'simple-blog-ui';
+import 'simple-blog-ui/style.css';
+
+export default defineNuxtPlugin(() => {});
+```
+
+And configure `isCustomElement` in `nuxt.config.ts`:
+
+```ts
+export default defineNuxtConfig({
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.startsWith('sb-'),
+    },
+  },
+});
+```
