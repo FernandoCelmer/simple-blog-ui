@@ -1,0 +1,17 @@
+:host {
+  display: inline-flex;
+  font-family: "Fira Mono", monospace;
+}
+
+:host([orientation='vertical']) {
+  flex-direction: column;
+}
+
+::slotted(sb-button:not(:first-child)) {
+  margin-left: -2px;
+}
+
+:host([orientation='vertical']) ::slotted(sb-button:not(:first-child)) {
+  margin-left: 0;
+  margin-top: -2px;
+}
