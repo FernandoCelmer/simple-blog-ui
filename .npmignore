@@ -1,0 +1,11 @@
+src
+demo
+node_modules
+.github
+.vscode
+.vite
+vite.config.js
+.gitignore
+.DS_Store
+*.log
+coverage
