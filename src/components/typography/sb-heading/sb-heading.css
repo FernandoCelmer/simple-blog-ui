@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+}
+
+.h {
+  margin: 3.2rem 0 1.6rem;
+  color: var(--title);
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
+  font-weight: 400;
+}
+
+.h[data-level='1'] { font-size: 3.2rem; line-height: 3.2rem; }
+.h[data-level='2'] { font-size: 2.8rem; line-height: 2.8rem; }
+.h[data-level='3'] { font-size: 2.4rem; line-height: 2.4rem; }
+.h[data-level='4'] { font-size: 2.2rem; line-height: 2.2rem; }
+.h[data-level='5'] { font-size: 2rem; line-height: 2rem; }
+.h[data-level='6'] { font-size: 1.4rem; line-height: 1.4rem; }
