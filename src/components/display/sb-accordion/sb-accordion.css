@@ -1,0 +1,56 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+  border: 2px solid var(--primary);
+  background-color: var(--background);
+}
+
+.item {
+  border-bottom: 2px solid var(--primary);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.header {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+  color: var(--text);
+  background-color: var(--background);
+  box-sizing: border-box;
+  transition: background-color 120ms ease;
+}
+
+.header:hover {
+  background-color: #f1f1f1;
+}
+
+.header[aria-expanded='true'] {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.panel {
+  padding: 1.2rem 1.6rem;
+  border-top: 2px solid var(--primary);
+  line-height: 1.8em;
+  font-size: 1.2rem;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 150ms ease;
+}
+
+.header[aria-expanded='true'] .arrow {
+  transform: rotate(90deg);
+}
