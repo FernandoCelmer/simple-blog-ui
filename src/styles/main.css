@@ -3,6 +3,8 @@
 html {
   box-sizing: border-box;
   font-size: 80%;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 *,
@@ -78,8 +80,8 @@ h5 { font-size: 2rem;   line-height: 2rem; }
 h6 { font-size: 1.4rem; line-height: 1.4rem; }
 
 code {
-  background-color: var(--primary);
-  color: var(--background);
+  background-color: var(--code-bg);
+  color: var(--code-fg);
   padding: 0.4rem 0.8rem;
   font-family: "Fira Mono", monospace;
 }
@@ -88,8 +90,8 @@ pre {
   margin: 1.6rem 0 1rem;
   padding: 1.6rem;
   overflow-x: auto;
-  background-color: var(--primary);
-  color: #e5e5e5;
+  background-color: var(--code-bg);
+  color: var(--code-fg);
   tab-size: 2;
   font-size: 0.775em;
   line-height: 30px;
@@ -102,7 +104,7 @@ pre code {
 }
 
 blockquote {
-  border-left: 2px solid #dcdcdc;
+  border-left: 2px solid var(--border-subtle);
   padding-left: 1.6rem;
   font-style: italic;
   margin: 1.6rem 0;
