@@ -6,11 +6,14 @@ A framework-agnostic component library built with [Lit](https://lit.dev/) — dr
 
 <p align="center">
   <a href="https://www.npmjs.com/package/simple-blog-ui"><img src="https://img.shields.io/npm/v/simple-blog-ui?style=flat-square&color=000000&labelColor=000000" alt="npm"></a>
+  <a href="https://fernandocelmer.github.io/simple-blog-ui/"><img src="https://img.shields.io/badge/storybook-live-000000?style=flat-square&labelColor=000000" alt="storybook"></a>
   <img src="https://img.shields.io/badge/lit-3.x-000000?style=flat-square&labelColor=000000" alt="lit">
   <img src="https://img.shields.io/badge/react-ready-000000?style=flat-square&labelColor=000000" alt="react">
   <img src="https://img.shields.io/badge/vue-ready-000000?style=flat-square&labelColor=000000" alt="vue">
   <img src="https://img.shields.io/badge/license-MIT-000000?style=flat-square&labelColor=000000" alt="license">
 </p>
+
+**📖 Live Storybook:** [fernandocelmer.github.io/simple-blog-ui](https://fernandocelmer.github.io/simple-blog-ui/)
 
 ## Why?
 
@@ -161,9 +164,44 @@ npm run build-storybook  # static Storybook site
 npm pack                 # produce a local tarball for testing
 ```
 
+## Why Web Components (and Lit)?
+
+The lib is built with [Lit](https://lit.dev/), which compiles to **standard Web Components** — native browser APIs. That means:
+
+- **No framework lock-in.** A `<sb-button>` is just an HTML element with Shadow DOM. It works in React, Vue, Svelte, Solid, Angular, plain HTML, or any future framework.
+- **Scoped styles.** Shadow DOM isolates each component's CSS — no class name collisions, no global leaks.
+- **Tiny runtime.** Lit is ~5KB gzip, loaded once for the whole library. No per-component bundle bloat.
+- **Future-proof.** Web Components are a W3C standard. Your investment survives framework churn.
+
+## How it compares
+
+| Library | Distribution | Design system | Dark mode | Frameworks |
+|---|---|---|---|---|
+| **simple-blog-ui** | npm (ESM + CJS) | Monospace, B&W, 2px borders | ✅ built-in | HTML · React · Vue |
+| [Shoelace](https://shoelace.style/) | npm | Modern, rounded | ✅ | all via WC |
+| [MUI](https://mui.com/) | npm | Material Design | ✅ | React only |
+| [Chakra UI](https://chakra-ui.com/) | npm | Clean, rounded | ✅ | React only |
+| [shadcn/ui](https://ui.shadcn.com/) | copy-paste | Opinionated | ✅ | React only |
+
+**When to pick simple-blog-ui** — you want a clean, opinionated monospace/terminal aesthetic, your app or blog is documentation-centric, or you want one lib that works across React and Vue without rewrites.
+
+## FAQ
+
+**Does it work with Next.js / Nuxt?** Yes. Register the components client-side (Next: in a client component; Nuxt: via a `.client.ts` plugin). Both frameworks support Web Components.
+
+**What about SSR?** Components render in the browser (Shadow DOM is client-side). The server sends the `<sb-*>` tags, the client hydrates. For pre-rendered HTML you can use [Lit SSR](https://lit.dev/docs/ssr/overview/) separately — not included here.
+
+**Is it tree-shakeable?** Individual components can be imported per-file in the React wrapper layer (`import { Button } from 'simple-blog-ui/react'`). The Web Component registrations in the main entry are side-effect imports — the full set is ~95KB gzipped.
+
+**Can I theme it?** Yes. All colors, fonts, spacing come from CSS custom properties. Override on `:root` to re-theme globally or on any parent for scoped overrides.
+
+**Is there a Figma kit?** Not yet.
+
+**How do I contribute?** Open an issue or PR at [github.com/FernandoCelmer/simple-blog-ui](https://github.com/FernandoCelmer/simple-blog-ui).
+
 ## Credits
 
-Born as a React/Vue companion to [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog). Built with [Lit](https://lit.dev/) and [highlight.js](https://highlightjs.org/). React wrappers generated via [@lit/react](https://lit.dev/docs/frameworks/react/).
+Born as a React/Vue companion to [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog). Built with [Lit](https://lit.dev/) and [highlight.js](https://highlightjs.org/). React wrappers generated via [@lit/react](https://lit.dev/docs/frameworks/react/). Documented with [Storybook](https://storybook.js.org/).
 
 ## License
 
