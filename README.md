@@ -23,7 +23,7 @@ npm install simple-blog-ui
 <sb-button variant="primary">Click me</sb-button>
 ```
 
-### React (JS or TS)
+### React — custom element directly
 
 ```jsx
 import 'simple-blog-ui';
@@ -33,6 +33,40 @@ export default function App() {
   return <sb-button variant="primary">Click me</sb-button>;
 }
 ```
+
+Custom events (`sb-click`, `sb-change`, etc.) in React 18 need `useRef` + `addEventListener`. React 19 handles them natively.
+
+### React — wrapped components (recommended)
+
+The lib ships PascalCase React wrappers via a subpath export. Each custom event becomes a regular React handler.
+
+```jsx
+import { Button, Alert, Input } from 'simple-blog-ui/react';
+import 'simple-blog-ui/style.css';
+
+export default function App() {
+  return (
+    <>
+      <Button variant="primary" onClick={() => alert('hi')}>Click me</Button>
+      <Alert variant="success" title="Saved" onDismiss={() => {}}>Done.</Alert>
+      <Input label="Email" onInput={(e) => console.log(e.detail.value)} />
+    </>
+  );
+}
+```
+
+Event map (examples):
+- `onClick` ← `sb-click` (Button, IconButton)
+- `onChange` ← `sb-change` (Input, Checkbox, Accordion)
+- `onInput` ← `sb-input` (Input, Textarea)
+- `onClose` ← `sb-close` (Modal, Offcanvas, Toast, CloseButton)
+- `onSelect` ← `sb-select` (Dropdown, ListGroup)
+- `onPageChange` ← `sb-page-change` (Pagination)
+- `onTabChange` ← `sb-tab-change` (Tabs)
+- `onDismiss` ← `sb-dismiss` (Alert)
+- `onRemove` ← `sb-remove` (Tag)
+- `onToggle` ← `sb-toggle` (Collapse)
+- `onSlide` ← `sb-slide` (Carousel)
 
 ### Vue 3
 
