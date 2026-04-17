@@ -1,0 +1,182 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Usage/React" />
+
+# Using simple-blog-ui with React
+
+The library ships official **React wrappers** so every component becomes a regular PascalCase React component with typed props and standard event handlers (`onClick`, `onChange`, etc.). Works with React 17, 18, and 19 (JS or TS).
+
+## Installation
+
+```bash
+npm install simple-blog-ui
+```
+
+`react` and `react-dom` are declared as optional peer dependencies — you only install them if you're building a React app.
+
+## Setup
+
+Import the CSS once (e.g. in your root `main.jsx` / `_app.tsx`):
+
+```js
+import 'simple-blog-ui/style.css';
+```
+
+Then import components from the `/react` subpath wherever you need them:
+
+```jsx
+import { Button, Input, Alert } from 'simple-blog-ui/react';
+```
+
+## Basic example
+
+```jsx
+import { Button, Input, Card, Stack } from 'simple-blog-ui/react';
+import 'simple-blog-ui/style.css';
+
+export default function LoginForm() {
+  const [email, setEmail] = useState('');
+
+  return (
+    <Card padding="lg" style={{ maxWidth: 420 }}>
+      <span slot="header">Sign in</span>
+      <Stack gap="4">
+        <Input
+          label="Email"
+          placeholder="you@example.com"
+          onInput={(e) => setEmail(e.detail.value)}
+        />
+        <Button variant="primary" onClick={() => console.log('login', email)}>
+          Continue
+        </Button>
+      </Stack>
+    </Card>
+  );
+}
+```
+
+## Event handling
+
+Web Component custom events (`sb-click`, `sb-change`, etc.) are mapped to standard React prop names by the wrapper. The event object is a `CustomEvent` — read payload from `event.detail`.
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">React prop</th>
+      <th align="left">Components</th>
+      <th align="left">Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>onClick</code></td>
+      <td>Button, IconButton</td>
+      <td>no detail</td>
+    </tr>
+    <tr>
+      <td><code>onInput</code></td>
+      <td>Input, Textarea</td>
+      <td><code>{'{ value: string }'}</code></td>
+    </tr>
+    <tr>
+      <td><code>onChange</code></td>
+      <td>Input, Checkbox, Switch, Accordion</td>
+      <td><code>{'{ checked?: boolean, value?: string }'}</code></td>
+    </tr>
+    <tr>
+      <td><code>onClose</code></td>
+      <td>Modal, Offcanvas, Toast, CloseButton</td>
+      <td>no detail</td>
+    </tr>
+    <tr>
+      <td><code>onSelect</code></td>
+      <td>Dropdown, ListGroup</td>
+      <td><code>{'{ id: string, item: object }'}</code></td>
+    </tr>
+    <tr>
+      <td><code>onPageChange</code></td>
+      <td>Pagination</td>
+      <td><code>{'{ page: number }'}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+## Controlled components
+
+The wrappers accept the same props the underlying custom elements expose. For form inputs, keep your state in React and mirror it into the component:
+
+```jsx
+const [comment, setComment] = useState('');
+
+<Textarea
+  label="Comment"
+  value={comment}
+  onInput={(e) => setComment(e.detail.value)}
+/>
+```
+
+## Modal and overlay triggers
+
+Modal/Offcanvas expose imperative `show()` and `close()` methods on the underlying element. Access them via a `ref`:
+
+```jsx
+import { useRef } from 'react';
+import { Modal, Button } from 'simple-blog-ui/react';
+
+function Example() {
+  const modal = useRef(null);
+  return (
+    <>
+      <Button onClick={() => modal.current.show()}>Open modal</Button>
+      <Modal ref={modal} title="Confirm">
+        <p>Are you sure?</p>
+        <Button slot="footer" onClick={() => modal.current.close()}>
+          Close
+        </Button>
+      </Modal>
+    </>
+  );
+}
+```
+
+## TypeScript
+
+The PascalCase wrappers accept the same props as the underlying elements. Declaration files ship automatically with the package — no extra setup needed in a TypeScript project.
+
+```tsx
+import { Button, ButtonProps } from 'simple-blog-ui/react';
+
+const buttonProps: ButtonProps = {
+  variant: 'primary',
+  size: 'lg',
+  onClick: () => {},
+};
+```
+
+## Using raw custom elements (fallback)
+
+If you prefer to use the tags directly, it still works:
+
+```jsx
+import 'simple-blog-ui';
+import 'simple-blog-ui/style.css';
+
+<sb-button variant="primary">Click me</sb-button>
+```
+
+In **React 18**, custom events (`sb-click`) need a `ref` + `addEventListener`:
+
+```jsx
+const ref = useRef();
+useEffect(() => {
+  const handler = () => console.log('clicked');
+  ref.current?.addEventListener('sb-click', handler);
+  return () => ref.current?.removeEventListener('sb-click', handler);
+}, []);
+
+<sb-button ref={ref}>Click</sb-button>
+```
+
+In **React 19**, custom elements and events are first-class — events can be written inline (`onSb-click={fn}`).
+
+The PascalCase wrappers from `/react` eliminate this divergence across React versions.
