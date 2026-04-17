@@ -4,7 +4,7 @@ import {
   SbButton, SbIconButton, SbButtonGroup, SbCloseButton,
   SbHeading, SbText, SbCode,
   SbContainer, SbStack, SbDivider,
-  SbCard, SbAvatar, SbBadge, SbTag, SbAccordion, SbCollapse, SbListGroup, SbCarousel,
+  SbCard, SbAvatar, SbBadge, SbTag, SbAccordion, SbCollapse, SbListGroup, SbCarousel, SbTable,
   SbInput, SbTextarea, SbCheckbox, SbSwitch,
   SbAlert, SbSpinner, SbProgress, SbToast,
   SbLink, SbTabs, SbNav, SbNavbar, SbBreadcrumb, SbPagination,
@@ -125,6 +125,12 @@ export const Carousel = createComponent({
   elementClass: SbCarousel,
   react: React,
   events: { onSlide: 'sb-slide' },
+});
+
+export const Table = createComponent({
+  tagName: 'sb-table',
+  elementClass: SbTable,
+  react: React,
 });
 
 export const Input = createComponent({
