@@ -5,7 +5,7 @@ import {
   SbHeading, SbText, SbCode,
   SbContainer, SbStack, SbDivider,
   SbCard, SbAvatar, SbBadge, SbTag, SbAccordion, SbCollapse, SbListGroup, SbCarousel,
-  SbInput, SbTextarea, SbCheckbox,
+  SbInput, SbTextarea, SbCheckbox, SbSwitch,
   SbAlert, SbSpinner, SbProgress, SbToast,
   SbLink, SbTabs, SbNav, SbNavbar, SbBreadcrumb, SbPagination,
   SbModal, SbTooltip, SbDropdown, SbOffcanvas, SbPopover,
@@ -144,6 +144,13 @@ export const Textarea = createComponent({
 export const Checkbox = createComponent({
   tagName: 'sb-checkbox',
   elementClass: SbCheckbox,
+  react: React,
+  events: { onChange: 'sb-change' },
+});
+
+export const Switch = createComponent({
+  tagName: 'sb-switch',
+  elementClass: SbSwitch,
   react: React,
   events: { onChange: 'sb-change' },
 });
