@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+:host([orientation='vertical']) ul {
+  flex-direction: column;
+}
+
+li {
+  margin: 0;
+}
+
+a {
+  display: inline-block;
+  padding: 0.8rem 1rem;
+  color: var(--text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.4rem;
+  line-height: 1.6em;
+  border-bottom: 2px solid transparent;
+}
+
+a:hover {
+  color: var(--color-gray);
+}
+
+li[aria-current='page'] a,
+li.active a {
+  color: var(--background);
+  background-color: var(--primary);
+}
+
+:host([variant='underline']) li a {
+  padding-bottom: 0.4rem;
+}
+
+:host([variant='underline']) li[aria-current='page'] a,
+:host([variant='underline']) li.active a {
+  background-color: transparent;
+  color: var(--text);
+  border-bottom-color: var(--primary);
+}
