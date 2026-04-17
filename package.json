@@ -3,25 +3,29 @@
   "version": "0.0.1",
   "description": "Framework-agnostic UI components for simple-blog (works with plain HTML, React, and Vue).",
   "type": "module",
-  "main": "./dist/simple-blog-ui.cjs",
-  "module": "./dist/simple-blog-ui.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/simple-blog-ui.js",
-      "require": "./dist/simple-blog-ui.cjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./react": {
+      "import": "./dist/react.js",
+      "require": "./dist/react.cjs"
     },
     "./style.css": "./dist/simple-blog-ui.css",
-    "./tokens.css": "./src/tokens.css"
+    "./tokens.css": "./src/styles/root.css"
   },
   "files": [
     "dist",
-    "src/tokens.css",
+    "src/styles",
     "README.md"
   ],
   "sideEffects": [
     "**/*.css",
-    "./dist/simple-blog-ui.js",
-    "./dist/simple-blog-ui.cjs"
+    "./dist/index.js",
+    "./dist/index.cjs"
   ],
   "scripts": {
     "build": "vite build",
@@ -43,8 +47,17 @@
     "url": "git+https://github.com/FernandoCelmer/simple-blog-ui.git"
   },
   "dependencies": {
+    "@lit/react": "^1.0.6",
     "highlight.js": "^11.10.0",
     "lit": "^3.2.0"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true },
+    "react-dom": { "optional": true }
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^8.3.5",
