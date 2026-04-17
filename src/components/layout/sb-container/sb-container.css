@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+}
+
+:host([size='sm']) { max-width: 70rem; }
+:host([size='md']) { max-width: 100rem; }
+:host([size='lg']) { max-width: 140rem; }
+:host([size='full']) { max-width: 100%; }
