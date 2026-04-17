@@ -1,0 +1,79 @@
+:host {
+  display: inline-block;
+  font-family: "Fira Mono", monospace;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  border: 2px solid var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  transition: background-color 120ms ease, color 120ms ease;
+  white-space: nowrap;
+}
+
+button[data-size='sm'] {
+  padding: 0.4rem 1rem;
+  font-size: 1.2rem;
+}
+button[data-size='md'] {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.4rem;
+}
+button[data-size='lg'] {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+}
+
+button[data-variant='primary'] {
+  background-color: var(--primary);
+  color: var(--background);
+}
+button[data-variant='primary']:hover {
+  background-color: var(--background);
+  color: var(--primary);
+}
+
+button[data-variant='secondary'] {
+  background-color: var(--background);
+  color: var(--primary);
+}
+button[data-variant='secondary']:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+button[data-variant='ghost'] {
+  background-color: transparent;
+  color: var(--text);
+  border-color: transparent;
+}
+button[data-variant='ghost']:hover {
+  background-color: #f1f1f1;
+}
+
+button[data-variant='danger'] {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border-color: var(--color-red);
+}
+button[data-variant='danger']:hover {
+  background-color: var(--background);
+  color: var(--color-red);
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
