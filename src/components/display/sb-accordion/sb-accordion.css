@@ -31,7 +31,7 @@
 }
 
 .header:hover {
-  background-color: #f1f1f1;
+  background-color: var(--bg-subtle);
 }
 
 .header[aria-expanded='true'] {

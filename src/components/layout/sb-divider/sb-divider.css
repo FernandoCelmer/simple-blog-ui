@@ -19,5 +19,5 @@
 
 :host([thin]) {
   border-width: 0.075rem;
-  border-color: #dcdcdc;
+  border-color: var(--border-subtle);
 }

@@ -55,7 +55,7 @@ button[data-variant='ghost'] {
   border-color: transparent;
 }
 button[data-variant='ghost']:hover {
-  background-color: #f1f1f1;
+  background-color: var(--bg-subtle);
 }
 
 button[data-variant='danger'] {

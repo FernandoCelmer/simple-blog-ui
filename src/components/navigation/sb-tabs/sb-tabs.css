@@ -23,7 +23,7 @@
 }
 
 .tab:hover {
-  background-color: #f1f1f1;
+  background-color: var(--bg-subtle);
 }
 
 .tab[aria-selected='true'] {
