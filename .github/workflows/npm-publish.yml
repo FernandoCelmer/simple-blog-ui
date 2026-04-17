@@ -1,0 +1,65 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npm ci
+
+      - name: Resolve version and npm dist-tag
+        id: release
+        run: |
+          VERSION="${{ github.event.release.tag_name }}"
+          VERSION="${VERSION#v}"
+          IS_PRERELEASE="${{ github.event.release.prerelease }}"
+
+          if [ "$IS_PRERELEASE" = "true" ]; then
+            SUFFIX=$(echo "$VERSION" | sed -nE 's/.*-([a-zA-Z]+)(\.[0-9]+)?$/\1/p')
+            if [ -z "$SUFFIX" ]; then
+              NPM_TAG="next"
+            else
+              NPM_TAG="$SUFFIX"
+            fi
+          else
+            NPM_TAG="latest"
+          fi
+
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "npm_tag=$NPM_TAG" >> "$GITHUB_OUTPUT"
+          echo "is_prerelease=$IS_PRERELEASE" >> "$GITHUB_OUTPUT"
+
+      - name: Align package.json version with release tag
+        run: npm version "${{ steps.release.outputs.version }}" --no-git-tag-version --allow-same-version
+
+      - name: Build library
+        run: npm run build
+
+      - name: Publish to npm
+        run: npm publish --tag "${{ steps.release.outputs.npm_tag }}" --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Release summary
+        run: |
+          {
+            echo "### Published simple-blog-ui@${{ steps.release.outputs.version }}"
+            echo ""
+            echo "- **npm dist-tag:** \`${{ steps.release.outputs.npm_tag }}\`"
+            echo "- **Pre-release:** ${{ steps.release.outputs.is_prerelease }}"
+            echo "- **Registry:** https://www.npmjs.com/package/simple-blog-ui/v/${{ steps.release.outputs.version }}"
+          } >> "$GITHUB_STEP_SUMMARY"
