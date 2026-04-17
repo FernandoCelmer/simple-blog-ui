@@ -4,31 +4,72 @@ import { Meta } from '@storybook/blocks';
 
 # simple-blog-ui
 
-Framework-agnostic Web Components library for **simple-blog**. Built with [Lit](https://lit.dev/).
-Works with **plain HTML**, **React** (JS or TS), and **Vue**.
+Framework-agnostic UI component library for **simple-blog**. Built with [Lit](https://lit.dev/) (Web Components). Works with **plain HTML**, **React** (JS or TS), and **Vue**.
 
 ## Design language
 
-Inherited from `mkdocs-simple-blog`:
+Inherited from [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog):
 
 - Font: **Fira Mono** monospace
 - Palette: black + white with accent colors (blue, green, yellow, orange, purple, red)
 - Borders: 2px solid black
-- Uppercase headings and actions with `letter-spacing: 0.0625em`
+- Uppercase headings, buttons, and nav labels with `letter-spacing: 0.0625em`
 - No rounded corners — deliberate, rigid, document-first aesthetic
+- Light and dark themes via `data-theme` attribute
 
-## Component categories
+## 36 components across 8 categories
 
-| Category      | Purpose                                          |
-| ------------- | ------------------------------------------------ |
-| **actions**   | Buttons and triggers                             |
-| **display**   | Cards, badges, avatars, lists                    |
-| **feedback**  | Alerts, spinners, progress, skeletons            |
-| **forms**     | Inputs, selects, checkboxes, fields              |
-| **layout**    | Containers, stacks, grids, dividers              |
-| **navigation**| Links, tabs, breadcrumbs, pagination, menus      |
-| **overlays**  | Modals, drawers, popovers, tooltips              |
-| **typography**| Headings, text, code                             |
+<table>
+  <thead>
+    <tr>
+      <th align="left">Category</th>
+      <th align="center">Count</th>
+      <th align="left">Components</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>actions</strong></td>
+      <td align="center">4</td>
+      <td><code>sb-button</code>, <code>sb-icon-button</code>, <code>sb-button-group</code>, <code>sb-close-button</code></td>
+    </tr>
+    <tr>
+      <td><strong>typography</strong></td>
+      <td align="center">3</td>
+      <td><code>sb-heading</code>, <code>sb-text</code>, <code>sb-code</code></td>
+    </tr>
+    <tr>
+      <td><strong>layout</strong></td>
+      <td align="center">3</td>
+      <td><code>sb-container</code>, <code>sb-stack</code>, <code>sb-divider</code></td>
+    </tr>
+    <tr>
+      <td><strong>display</strong></td>
+      <td align="center">8</td>
+      <td><code>sb-card</code>, <code>sb-avatar</code>, <code>sb-badge</code>, <code>sb-tag</code>, <code>sb-accordion</code>, <code>sb-collapse</code>, <code>sb-list-group</code>, <code>sb-carousel</code></td>
+    </tr>
+    <tr>
+      <td><strong>forms</strong></td>
+      <td align="center">4</td>
+      <td><code>sb-input</code>, <code>sb-textarea</code>, <code>sb-checkbox</code>, <code>sb-switch</code></td>
+    </tr>
+    <tr>
+      <td><strong>feedback</strong></td>
+      <td align="center">4</td>
+      <td><code>sb-alert</code>, <code>sb-spinner</code>, <code>sb-progress</code>, <code>sb-toast</code></td>
+    </tr>
+    <tr>
+      <td><strong>navigation</strong></td>
+      <td align="center">6</td>
+      <td><code>sb-link</code>, <code>sb-tabs</code>, <code>sb-nav</code>, <code>sb-navbar</code>, <code>sb-breadcrumb</code>, <code>sb-pagination</code></td>
+    </tr>
+    <tr>
+      <td><strong>overlays</strong></td>
+      <td align="center">5</td>
+      <td><code>sb-modal</code>, <code>sb-tooltip</code>, <code>sb-dropdown</code>, <code>sb-offcanvas</code>, <code>sb-popover</code></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Installation
 
@@ -38,31 +79,23 @@ npm install simple-blog-ui
 
 ## Usage
 
-### HTML
+Pick your stack for a focused integration guide:
 
-```html
-<script type="module">
-  import 'simple-blog-ui';
-  import 'simple-blog-ui/style.css';
-</script>
+- **[Usage / HTML](?path=/docs/usage-html--docs)** — plain HTML, bundler or CDN
+- **[Usage / React](?path=/docs/usage-react--docs)** — PascalCase wrappers via `simple-blog-ui/react`
+- **[Usage / Vue](?path=/docs/usage-vue--docs)** — Vue 3 with `isCustomElement`
 
-<sb-button variant="primary">Click me</sb-button>
-```
-
-### React (JS or TS)
+Minimal React example:
 
 ```jsx
-import 'simple-blog-ui';
+import { Button, Input } from 'simple-blog-ui/react';
 import 'simple-blog-ui/style.css';
 
-export default function App() {
-  return <sb-button variant="primary">Click me</sb-button>;
-}
+<Button variant="primary" onClick={() => {}}>Click me</Button>
+<Input label="Email" onInput={(e) => console.log(e.detail.value)} />
 ```
 
-For custom events (`sb-click`), use `useRef` + `addEventListener`.
-
-### Vue 3
+Minimal Vue example:
 
 ```vue
 <script setup>
@@ -75,8 +108,22 @@ import 'simple-blog-ui/style.css';
 </template>
 ```
 
-In `vite.config`, mark `sb-*` as custom elements:
+## Theming
 
-```ts
-vue({ template: { compilerOptions: { isCustomElement: (t) => t.startsWith('sb-') } } });
+Two themes out of the box — toggle with the **Light / Dark** button in the Storybook toolbar above. In consumer apps, set `data-theme="dark"` on `<html>` to enable dark mode:
+
+```html
+<html data-theme="dark"> ... </html>
 ```
+
+All components read their colors, spacing, and typography from CSS custom properties defined in `root.css`. Override any token on `:root` (or a scoped ancestor) to re-theme:
+
+```css
+:root {
+  --primary: #1e40af;
+  --background: #fef3c7;
+  --color-red: #b91c1c;
+}
+```
+
+See **Design / Colors** and **Design / Typography** for the full token map.
