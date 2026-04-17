@@ -4,7 +4,7 @@ import { Meta, Typeset } from '@storybook/blocks';
 
 # Typography
 
-Single family: **Fira Mono**, monospace. Font scale below matches the blog's `main.css`.
+Single family across the whole library: **Fira Mono**, monospace. Same scale as [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog)'s `main.css`.
 
 <Typeset
   fontSizes={[
@@ -22,29 +22,52 @@ Single family: **Fira Mono**, monospace. Font scale below matches the blog's `ma
 
 ## Heading scale
 
-| Tag   | Size    |
-| ----- | ------- |
-| `h1`  | 3.2rem  |
-| `h2`  | 2.8rem  |
-| `h3`  | 2.4rem  |
-| `h4`  | 2.2rem  |
-| `h5`  | 2rem    |
-| `h6`  | 1.4rem  |
+<table>
+  <thead>
+    <tr>
+      <th align="left">Tag</th>
+      <th align="left">Size</th>
+      <th align="left">Line height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>h1</code></td><td>3.2rem</td><td>3.2rem</td></tr>
+    <tr><td><code>h2</code></td><td>2.8rem</td><td>2.8rem</td></tr>
+    <tr><td><code>h3</code></td><td>2.4rem</td><td>2.4rem</td></tr>
+    <tr><td><code>h4</code></td><td>2.2rem</td><td>2.2rem</td></tr>
+    <tr><td><code>h5</code></td><td>2rem</td><td>2rem</td></tr>
+    <tr><td><code>h6</code></td><td>1.4rem</td><td>1.4rem</td></tr>
+  </tbody>
+</table>
 
-Headings are **uppercase** with `letter-spacing: 0.0625em`.
+Headings are **uppercase** with `letter-spacing: 0.0625em`. Use `<sb-heading>` for a consistent semantic element across shadow DOM boundaries.
 
-## Body
+## Body text
 
 - Family: `"Fira Mono", monospace`
-- Size: `1.2em` (root is 80% of default, so ~12.8px base)
+- Base size: `1.2em` — remember `html { font-size: 80% }` is applied, so `1rem ≈ 12.8px`
 - Line height: `1.8em`
 - Letter spacing: `0.0625em`
 
-## Code
+Use `<sb-text>` for paragraph-level copy with variants (`body`, `muted`, `small`, `italic`).
+
+## Inline and block code
 
 ```html
-<code>inline code</code>
-<pre><code>block code</code></pre>
+<sb-code>inline code</sb-code>
+<sb-code block language="javascript">
+const greet = (name) => `Hello, ${name}!`;
+</sb-code>
 ```
 
-`code` renders with `background: var(--primary)` (black) and `color: var(--background)` (white).
+`sb-code` uses `--code-bg` and `--code-fg` tokens (which stay dark in both themes — terminal-like). Block variant supports syntax highlighting via [highlight.js](https://highlightjs.org/) — pass a `language` attribute or let auto-detect run.
+
+## Buttons, nav, and badges
+
+All interactive labels follow the same uppercase convention as headings:
+
+- `text-transform: uppercase`
+- `letter-spacing: 0.1rem`
+- Font weight: 400 (normal) — bold only for badge titles
+
+This gives the whole UI a typewriter / terminal rhythm without relying on weight variation.
