@@ -1,0 +1,46 @@
+:host {
+  display: inline-block;
+  font-family: "Fira Mono", monospace;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.8rem;
+  border: 2px solid var(--primary);
+  background-color: var(--primary);
+  color: var(--background);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.badge[data-variant='outline'] {
+  background-color: var(--background);
+  color: var(--primary);
+}
+
+.badge[data-variant='success'] {
+  background-color: var(--color-green);
+  border-color: var(--color-green);
+  color: var(--color-white);
+}
+
+.badge[data-variant='warning'] {
+  background-color: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-black);
+}
+
+.badge[data-variant='danger'] {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.badge[data-variant='info'] {
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
+  color: var(--color-white);
+}
