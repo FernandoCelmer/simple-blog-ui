@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+}
+
+.trigger {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border: 2px solid var(--primary);
+  background-color: var(--background);
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+}
+
+.trigger:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 200ms ease;
+  padding: 0 1rem;
+  border-left: 2px solid var(--primary);
+  margin-top: 0.8rem;
+}
+
+:host([open]) .panel {
+  max-height: 999px;
+  padding: 1rem;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 150ms ease;
+}
+
+:host([open]) .arrow {
+  transform: rotate(90deg);
+}
