@@ -1,0 +1,37 @@
+import { Meta, Primary, Controls, Stories } from '@storybook/blocks';
+import { FrameworkTabs } from '../../../../.storybook/FrameworkTabs.jsx';
+import * as S from './sb-container.stories.js';
+
+<Meta of={S} />
+
+# Container
+
+Centered wrapper with responsive max-widths: `sm` (70rem), `md` (100rem), `lg` (140rem, default), `full`.
+
+## Usage
+
+<FrameworkTabs
+  html={`<sb-container size="lg">
+  <h1>Page content</h1>
+</sb-container>`}
+  react={`import { Container } from 'simple-blog-ui/react';
+
+<Container size="lg">
+  <h1>Page content</h1>
+</Container>`}
+  vue={`<sb-container size="lg">
+  <h1>Page content</h1>
+</sb-container>`}
+/>
+
+## Primary
+
+<Primary />
+
+## Controls
+
+<Controls />
+
+## Stories
+
+<Stories />
