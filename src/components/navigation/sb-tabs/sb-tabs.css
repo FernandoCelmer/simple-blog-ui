@@ -1,0 +1,44 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+}
+
+.tablist {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--primary);
+}
+
+.tab {
+  all: unset;
+  cursor: pointer;
+  padding: 0.8rem 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+  color: var(--text);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: background-color 120ms ease;
+}
+
+.tab:hover {
+  background-color: #f1f1f1;
+}
+
+.tab[aria-selected='true'] {
+  background-color: var(--primary);
+  color: var(--background);
+  border-bottom-color: var(--primary);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: -2px;
+}
+
+.panel {
+  padding: 1.6rem 0;
+  line-height: 1.8em;
+  color: var(--text);
+}
