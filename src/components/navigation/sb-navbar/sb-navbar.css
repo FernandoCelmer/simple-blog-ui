@@ -1,7 +1,7 @@
 :host {
   display: block;
   font-family: "Fira Mono", monospace;
-  border-bottom: 2px solid var(--primary);
+  border-bottom: 1px solid var(--border-subtle);
   background-color: var(--surface);
   color: var(--text);
 }
