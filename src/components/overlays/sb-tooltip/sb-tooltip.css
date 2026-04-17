@@ -1,0 +1,47 @@
+:host {
+  display: inline-block;
+  position: relative;
+  font-family: "Fira Mono", monospace;
+}
+
+.bubble {
+  position: absolute;
+  bottom: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary);
+  color: var(--background);
+  border: 2px solid var(--primary);
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  z-index: 100;
+}
+
+:host([placement='bottom']) .bubble {
+  top: calc(100% + 0.6rem);
+  bottom: auto;
+}
+
+:host([placement='left']) .bubble {
+  top: 50%;
+  left: auto;
+  right: calc(100% + 0.6rem);
+  transform: translateY(-50%);
+}
+
+:host([placement='right']) .bubble {
+  top: 50%;
+  left: calc(100% + 0.6rem);
+  transform: translateY(-50%);
+}
+
+:host(:hover) .bubble,
+:host(:focus-within) .bubble {
+  opacity: 1;
+}
