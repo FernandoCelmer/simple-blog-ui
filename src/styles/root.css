@@ -13,6 +13,7 @@
     --color-purple: #ab47bd;
     --color-red: #ff2c06;
 
+    --surface: #ffffff;
     --bg-subtle: #f1f1f1;
     --border-subtle: #dcdcdc;
     --text-muted: #5c5c5c;
@@ -27,8 +28,9 @@
     --primary: #ffffff;
     --background: #0b0f19;
 
-    --bg-subtle: #1a1f2e;
-    --border-subtle: #2a3042;
+    --surface: #1a1f2e;
+    --bg-subtle: #2a3042;
+    --border-subtle: #3a4255;
     --text-muted: #a0a0a0;
     --backdrop: rgba(255, 255, 255, 0.15);
     --code-bg: #1a1f2e;
