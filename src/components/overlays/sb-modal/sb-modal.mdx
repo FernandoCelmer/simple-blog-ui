@@ -1,0 +1,72 @@
+import { Meta, Primary, Controls, Stories } from '@storybook/blocks';
+import { FrameworkTabs } from '../../../../.storybook/FrameworkTabs.jsx';
+import * as S from './sb-modal.stories.js';
+
+<Meta of={S} />
+
+# Modal
+
+Dialog with backdrop, title, body, and footer slot. Trigger with `show()`, close with `close()` or Escape. Emits `sb-close`. Clicking backdrop closes unless `close-on-backdrop="false"`.
+
+## Usage
+
+<FrameworkTabs
+  html={`<sb-button id="open">Open</sb-button>
+<sb-modal id="dlg" title="Confirm action">
+  <p>Are you sure you want to continue?</p>
+  <sb-button slot="footer" variant="secondary">Cancel</sb-button>
+  <sb-button slot="footer">Confirm</sb-button>
+</sb-modal>
+
+<script>
+  const dlg = document.getElementById('dlg');
+  document.getElementById('open').addEventListener('sb-click', () => dlg.show());
+</script>`}
+  react={`import { Modal, Button } from 'simple-blog-ui/react';
+import { useRef } from 'react';
+
+function Example() {
+  const dlg = useRef(null);
+  return (
+    <>
+      <Button onClick={() => dlg.current.show()}>Open</Button>
+      <Modal ref={dlg} title="Confirm action">
+        <p>Are you sure you want to continue?</p>
+        <Button slot="footer" variant="secondary" onClick={() => dlg.current.close()}>
+          Cancel
+        </Button>
+        <Button slot="footer" onClick={() => dlg.current.close()}>
+          Confirm
+        </Button>
+      </Modal>
+    </>
+  );
+}`}
+  vue={`<script setup>
+import { ref } from 'vue';
+const dlg = ref(null);
+</script>
+
+<template>
+  <sb-button @sb-click="dlg.show()">Open</sb-button>
+  <sb-modal ref="dlg" title="Confirm action">
+    <p>Are you sure you want to continue?</p>
+    <sb-button slot="footer" variant="secondary" @sb-click="dlg.close()">
+      Cancel
+    </sb-button>
+    <sb-button slot="footer" @sb-click="dlg.close()">Confirm</sb-button>
+  </sb-modal>
+</template>`}
+/>
+
+## Primary
+
+<Primary />
+
+## Controls
+
+<Controls />
+
+## Stories
+
+<Stories />
