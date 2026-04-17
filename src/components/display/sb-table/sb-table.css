@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text);
+}
+
+th,
+td {
+  padding: 1rem;
+  border: 2px solid var(--primary);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+  background-color: var(--surface);
+}
+
+tr:first-child th {
+  border-top: 0;
+}
+tr:last-child td {
+  border-bottom: 0;
+}
+tr td:first-child,
+tr th:first-child {
+  border-left: 0;
+}
+tr td:last-child,
+tr th:last-child {
+  border-right: 0;
+}
+
+:host([striped]) tbody tr:nth-child(even) td {
+  background-color: var(--bg-subtle);
+}
+
+:host([compact]) th,
+:host([compact]) td {
+  padding: 0.5rem 0.8rem;
+  font-size: 1.2rem;
+}
