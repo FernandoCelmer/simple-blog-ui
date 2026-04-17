@@ -14,7 +14,7 @@
       "import": "./dist/react.js",
       "require": "./dist/react.cjs"
     },
-    "./style.css": "./dist/simple-blog-ui.css",
+    "./style.css": "./src/styles/main.css",
     "./tokens.css": "./src/styles/root.css"
   },
   "files": [
