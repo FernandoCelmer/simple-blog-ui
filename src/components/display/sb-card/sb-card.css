@@ -1,0 +1,34 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+  border: 2px solid var(--primary);
+  background-color: var(--background);
+  color: var(--text);
+}
+
+:host([padding='sm']) .body { padding: 1rem; }
+:host([padding='md']) .body { padding: 1.6rem; }
+:host([padding='lg']) .body { padding: 2.4rem; }
+
+.header {
+  padding: 1rem 1.6rem;
+  border-bottom: 2px solid var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+}
+
+.footer {
+  padding: 1rem 1.6rem;
+  border-top: 2px solid var(--primary);
+}
+
+.body {
+  padding: 1.6rem;
+  line-height: 1.8em;
+}
+
+::slotted([slot='header']),
+::slotted([slot='footer']) {
+  margin: 0;
+}
