@@ -1,0 +1,43 @@
+import { Meta, Primary, Controls, Stories } from '@storybook/blocks';
+import { FrameworkTabs } from '../../../../.storybook/FrameworkTabs.jsx';
+import * as S from './sb-carousel.stories.js';
+
+<Meta of={S} />
+
+# Carousel
+
+Horizontal slideshow with prev/next arrows and dot indicators. Optional auto-advance via `interval` (ms). Each child of the default slot is a slide.
+
+## Usage
+
+<FrameworkTabs
+  html={`<sb-carousel interval="4000" style="max-width: 600px;">
+  <div style="padding: 4rem; background: #4cae4f;">Slide 1</div>
+  <div style="padding: 4rem; background: #4051b5;">Slide 2</div>
+  <div style="padding: 4rem; background: #ffa724;">Slide 3</div>
+</sb-carousel>`}
+  react={`import { Carousel } from 'simple-blog-ui/react';
+
+<Carousel interval={4000} style={{ maxWidth: 600 }}>
+  <div style={{ padding: '4rem', background: '#4cae4f' }}>Slide 1</div>
+  <div style={{ padding: '4rem', background: '#4051b5' }}>Slide 2</div>
+  <div style={{ padding: '4rem', background: '#ffa724' }}>Slide 3</div>
+</Carousel>`}
+  vue={`<sb-carousel :interval="4000" style="max-width: 600px;">
+  <div style="padding: 4rem; background: #4cae4f;">Slide 1</div>
+  <div style="padding: 4rem; background: #4051b5;">Slide 2</div>
+  <div style="padding: 4rem; background: #ffa724;">Slide 3</div>
+</sb-carousel>`}
+/>
+
+## Primary
+
+<Primary />
+
+## Controls
+
+<Controls />
+
+## Stories
+
+<Stories />
