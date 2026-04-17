@@ -6,3 +6,4 @@ export { SbAccordion } from './sb-accordion/sb-accordion.js';
 export { SbCollapse } from './sb-collapse/sb-collapse.js';
 export { SbListGroup } from './sb-list-group/sb-list-group.js';
 export { SbCarousel } from './sb-carousel/sb-carousel.js';
+export { SbTable } from './sb-table/sb-table.js';
