@@ -1,0 +1,20 @@
+:host {
+  display: inline-block;
+  font-family: "Fira Mono", monospace;
+}
+
+.spinner {
+  display: inline-block;
+  border: 2px solid var(--primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+}
+
+.spinner[data-size='sm'] { width: 1.6rem; height: 1.6rem; }
+.spinner[data-size='md'] { width: 2.4rem; height: 2.4rem; }
+.spinner[data-size='lg'] { width: 3.6rem; height: 3.6rem; border-width: 3px; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
