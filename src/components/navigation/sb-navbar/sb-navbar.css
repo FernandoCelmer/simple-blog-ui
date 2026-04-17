@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+  border-bottom: 2px solid var(--primary);
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.6rem;
+  min-height: 6rem;
+  gap: 1.6rem;
+}
+
+.brand {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+}
+
+.brand ::slotted(a) {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.links ::slotted(*) {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.toggle {
+  all: unset;
+  cursor: pointer;
+  display: none;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+@media (max-width: 768px) {
+  .toggle { display: inline-flex; }
+  .links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.6rem;
+    border-top: 2px solid var(--primary);
+  }
+  :host([open]) .links { display: flex; }
+  :host([open]) .bar { flex-wrap: wrap; }
+}
