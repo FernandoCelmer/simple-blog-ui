@@ -3,7 +3,6 @@ import './sb-text.js';
 
 export default {
   title: 'Typography/Text',
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'inline-radio',

@@ -3,7 +3,6 @@ import './sb-icon-button.js';
 
 export default {
   title: 'Actions/IconButton',
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'inline-radio',

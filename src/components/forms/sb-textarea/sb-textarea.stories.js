@@ -3,7 +3,6 @@ import './sb-textarea.js';
 
 export default {
   title: 'Forms/Textarea',
-  tags: ['autodocs'],
   argTypes: {
     label: { control: 'text' },
     placeholder: { control: 'text' },

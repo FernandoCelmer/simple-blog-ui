@@ -3,7 +3,6 @@ import './sb-code.js';
 
 export default {
   title: 'Typography/Code',
-  tags: ['autodocs'],
   argTypes: {
     block: { control: 'boolean' },
     language: {

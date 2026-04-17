@@ -3,7 +3,6 @@ import './sb-badge.js';
 
 export default {
   title: 'Display/Badge',
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'inline-radio',

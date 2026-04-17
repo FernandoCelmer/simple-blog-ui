@@ -3,7 +3,6 @@ import './sb-checkbox.js';
 
 export default {
   title: 'Forms/Checkbox',
-  tags: ['autodocs'],
   argTypes: {
     checked: { control: 'boolean' },
     disabled: { control: 'boolean' },

@@ -4,7 +4,6 @@ import '../sb-button/sb-button.js';
 
 export default {
   title: 'Actions/ButtonGroup',
-  tags: ['autodocs'],
   argTypes: {
     orientation: { control: 'inline-radio', options: ['horizontal', 'vertical'] },
   },

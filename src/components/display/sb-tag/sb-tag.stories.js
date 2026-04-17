@@ -3,7 +3,6 @@ import './sb-tag.js';
 
 export default {
   title: 'Display/Tag',
-  tags: ['autodocs'],
   argTypes: {
     removable: { control: 'boolean' },
     label: { control: 'text' },

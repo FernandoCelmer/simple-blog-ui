@@ -3,7 +3,6 @@ import './sb-input.js';
 
 export default {
   title: 'Forms/Input',
-  tags: ['autodocs'],
   argTypes: {
     type: {
       control: 'inline-radio',

@@ -3,7 +3,6 @@ import './sb-collapse.js';
 
 export default {
   title: 'Display/Collapse',
-  tags: ['autodocs'],
   argTypes: {
     label: { control: 'text' },
     open: { control: 'boolean' },

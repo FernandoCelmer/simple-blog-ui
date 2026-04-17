@@ -3,7 +3,6 @@ import './sb-container.js';
 
 export default {
   title: 'Layout/Container',
-  tags: ['autodocs'],
   argTypes: {
     size: { control: 'inline-radio', options: ['sm', 'md', 'lg', 'full'] },
   },

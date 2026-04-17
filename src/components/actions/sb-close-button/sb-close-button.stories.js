@@ -3,7 +3,6 @@ import './sb-close-button.js';
 
 export default {
   title: 'Actions/CloseButton',
-  tags: ['autodocs'],
   argTypes: {
     label: { control: 'text' },
     disabled: { control: 'boolean' },

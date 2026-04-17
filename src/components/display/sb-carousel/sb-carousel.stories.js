@@ -3,7 +3,6 @@ import './sb-carousel.js';
 
 export default {
   title: 'Display/Carousel',
-  tags: ['autodocs'],
   argTypes: {
     interval: { control: { type: 'number', min: 0, max: 10000, step: 500 } },
   },

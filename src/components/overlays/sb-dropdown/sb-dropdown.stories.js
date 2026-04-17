@@ -4,7 +4,6 @@ import '../../actions/sb-button/sb-button.js';
 
 export default {
   title: 'Overlays/Dropdown',
-  tags: ['autodocs'],
   argTypes: {
     align: { control: 'inline-radio', options: ['left', 'right'] },
   },

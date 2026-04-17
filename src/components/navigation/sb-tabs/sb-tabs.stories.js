@@ -3,7 +3,6 @@ import './sb-tabs.js';
 
 export default {
   title: 'Navigation/Tabs',
-  tags: ['autodocs'],
 };
 
 const tabs = [

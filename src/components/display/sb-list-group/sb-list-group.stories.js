@@ -3,7 +3,6 @@ import './sb-list-group.js';
 
 export default {
   title: 'Display/ListGroup',
-  tags: ['autodocs'],
   argTypes: {
     interactive: { control: 'boolean' },
     active: { control: 'text' },

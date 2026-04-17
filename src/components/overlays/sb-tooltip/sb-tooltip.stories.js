@@ -4,7 +4,6 @@ import '../../actions/sb-button/sb-button.js';
 
 export default {
   title: 'Overlays/Tooltip',
-  tags: ['autodocs'],
   argTypes: {
     placement: { control: 'inline-radio', options: ['top', 'bottom', 'left', 'right'] },
     label: { control: 'text' },

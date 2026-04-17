@@ -4,7 +4,6 @@ import '../../actions/sb-button/sb-button.js';
 
 export default {
   title: 'Layout/Stack',
-  tags: ['autodocs'],
   argTypes: {
     direction: { control: 'inline-radio', options: ['row', 'column'] },
     align: { control: 'inline-radio', options: ['start', 'center', 'end', 'stretch'] },

@@ -3,7 +3,6 @@ import './sb-progress.js';
 
 export default {
   title: 'Feedback/Progress',
-  tags: ['autodocs'],
   argTypes: {
     value: { control: { type: 'range', min: 0, max: 100 } },
     variant: {

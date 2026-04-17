@@ -3,7 +3,6 @@ import './sb-avatar.js';
 
 export default {
   title: 'Display/Avatar',
-  tags: ['autodocs'],
   argTypes: {
     size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
     src: { control: 'text' },

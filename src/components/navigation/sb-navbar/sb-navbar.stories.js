@@ -4,7 +4,6 @@ import '../sb-link/sb-link.js';
 
 export default {
   title: 'Navigation/Navbar',
-  tags: ['autodocs'],
 };
 
 export const Basic = () => html`

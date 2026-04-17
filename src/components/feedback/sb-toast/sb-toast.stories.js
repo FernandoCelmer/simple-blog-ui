@@ -4,7 +4,6 @@ import '../../actions/sb-button/sb-button.js';
 
 export default {
   title: 'Feedback/Toast',
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'inline-radio',

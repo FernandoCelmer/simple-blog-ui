@@ -3,7 +3,6 @@ import './sb-nav.js';
 
 export default {
   title: 'Navigation/Nav',
-  tags: ['autodocs'],
   argTypes: {
     orientation: { control: 'inline-radio', options: ['horizontal', 'vertical'] },
     variant: { control: 'inline-radio', options: ['solid', 'underline'] },

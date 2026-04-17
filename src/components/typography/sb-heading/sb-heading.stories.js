@@ -3,7 +3,6 @@ import './sb-heading.js';
 
 export default {
   title: 'Typography/Heading',
-  tags: ['autodocs'],
   argTypes: {
     level: { control: { type: 'inline-radio' }, options: [1, 2, 3, 4, 5, 6] },
     label: { control: 'text' },

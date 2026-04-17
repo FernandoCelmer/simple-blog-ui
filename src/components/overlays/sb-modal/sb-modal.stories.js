@@ -4,7 +4,6 @@ import '../../actions/sb-button/sb-button.js';
 
 export default {
   title: 'Overlays/Modal',
-  tags: ['autodocs'],
 };
 
 export const Basic = () => {

@@ -3,7 +3,6 @@ import './sb-breadcrumb.js';
 
 export default {
   title: 'Navigation/Breadcrumb',
-  tags: ['autodocs'],
   argTypes: {
     separator: { control: 'text' },
   },

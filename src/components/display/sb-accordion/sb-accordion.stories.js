@@ -3,7 +3,6 @@ import './sb-accordion.js';
 
 export default {
   title: 'Display/Accordion',
-  tags: ['autodocs'],
   argTypes: {
     multiple: { control: 'boolean' },
   },

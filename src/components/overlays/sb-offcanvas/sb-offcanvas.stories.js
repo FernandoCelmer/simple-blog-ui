@@ -4,7 +4,6 @@ import '../../actions/sb-button/sb-button.js';
 
 export default {
   title: 'Overlays/Offcanvas',
-  tags: ['autodocs'],
   argTypes: {
     placement: { control: 'inline-radio', options: ['left', 'right', 'top', 'bottom'] },
     title: { control: 'text' },

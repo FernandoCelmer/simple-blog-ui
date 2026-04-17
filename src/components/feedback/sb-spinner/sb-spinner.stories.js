@@ -3,7 +3,6 @@ import './sb-spinner.js';
 
 export default {
   title: 'Feedback/Spinner',
-  tags: ['autodocs'],
   argTypes: {
     size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
     label: { control: 'text' },

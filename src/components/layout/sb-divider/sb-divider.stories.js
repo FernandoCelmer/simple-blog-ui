@@ -3,7 +3,6 @@ import './sb-divider.js';
 
 export default {
   title: 'Layout/Divider',
-  tags: ['autodocs'],
   argTypes: {
     orientation: { control: 'inline-radio', options: ['horizontal', 'vertical'] },
     thin: { control: 'boolean' },

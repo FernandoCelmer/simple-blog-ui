@@ -3,7 +3,6 @@ import './sb-pagination.js';
 
 export default {
   title: 'Navigation/Pagination',
-  tags: ['autodocs'],
   argTypes: {
     page: { control: { type: 'number', min: 1 } },
     total: { control: { type: 'number', min: 1 } },

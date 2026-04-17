@@ -3,7 +3,6 @@ import './sb-link.js';
 
 export default {
   title: 'Navigation/Link',
-  tags: ['autodocs'],
   argTypes: {
     variant: { control: 'inline-radio', options: ['text', 'nav', 'muted'] },
     href: { control: 'text' },

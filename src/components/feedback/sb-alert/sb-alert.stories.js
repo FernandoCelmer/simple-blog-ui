@@ -3,7 +3,6 @@ import './sb-alert.js';
 
 export default {
   title: 'Feedback/Alert',
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'inline-radio',

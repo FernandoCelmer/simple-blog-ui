@@ -4,7 +4,6 @@ import '../../actions/sb-button/sb-button.js';
 
 export default {
   title: 'Display/Card',
-  tags: ['autodocs'],
   argTypes: {
     padding: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
   },
