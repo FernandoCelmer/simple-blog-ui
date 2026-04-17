@@ -1,0 +1,59 @@
+import { Meta, Primary, Controls, Stories } from '@storybook/blocks';
+import { FrameworkTabs } from '../../../../.storybook/FrameworkTabs.jsx';
+import * as S from './sb-switch.stories.js';
+
+<Meta of={S} />
+
+# Switch
+
+Sliding on/off toggle with a rectangular track and square thumb. Same API as checkbox — emits `sb-change` with `{ checked, value }`.
+
+## Usage
+
+<FrameworkTabs
+  html={`<sb-switch name="dark-mode">Dark mode</sb-switch>
+
+<script>
+  document.querySelector('sb-switch')
+    .addEventListener('sb-change', (e) => console.log(e.detail.checked));
+</script>`}
+  react={`import { Switch } from 'simple-blog-ui/react';
+import { useState } from 'react';
+
+function DarkModeToggle() {
+  const [on, setOn] = useState(false);
+  return (
+    <Switch
+      checked={on}
+      onChange={(e) => setOn(e.detail.checked)}
+    >
+      Dark mode
+    </Switch>
+  );
+}`}
+  vue={`<script setup>
+import { ref } from 'vue';
+const darkMode = ref(false);
+</script>
+
+<template>
+  <sb-switch
+    :checked="darkMode"
+    @sb-change="darkMode = $event.detail.checked"
+  >
+    Dark mode
+  </sb-switch>
+</template>`}
+/>
+
+## Primary
+
+<Primary />
+
+## Controls
+
+<Controls />
+
+## Stories
+
+<Stories />
