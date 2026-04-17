@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+  color: var(--text);
+  line-height: 1.8em;
+  letter-spacing: 0.0625em;
+}
+
+p {
+  margin: 1.6rem 0;
+  font-weight: 400;
+}
+
+p[data-variant='muted'] { color: var(--color-gray); }
+p[data-variant='small'] { font-size: 0.85em; }
+p[data-variant='italic'] { font-style: italic; }
+
+p[data-weight='bold'] { font-weight: 700; }
