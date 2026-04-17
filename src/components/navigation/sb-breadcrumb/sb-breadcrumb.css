@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+a:hover { color: var(--color-gray); }
+
+li[aria-current='page'] {
+  color: var(--color-gray);
+}
+
+.separator {
+  color: var(--color-gray);
+  user-select: none;
+}
