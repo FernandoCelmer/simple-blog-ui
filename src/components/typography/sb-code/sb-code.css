@@ -1,0 +1,119 @@
+:host {
+  font-family: "Fira Mono", monospace;
+}
+
+:host([block]) {
+  display: block;
+}
+
+:host(:not([block])) {
+  display: inline;
+}
+
+code {
+  background-color: var(--primary);
+  color: var(--background);
+  padding: 0.4rem 0.8rem;
+  font-family: inherit;
+}
+
+pre {
+  margin: 1.6rem 0 1rem;
+  padding: 1.6rem;
+  overflow-x: auto;
+  background-color: var(--primary);
+  color: #f5f5f5;
+  tab-size: 2;
+  font-size: 0.775em;
+  line-height: 30px;
+}
+
+pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.hljs {
+  background: var(--primary);
+  color: #f5f5f5;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta {
+  color: var(--color-blue);
+  font-weight: 700;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-code,
+.hljs-title.class_.inherited__ {
+  color: var(--color-green);
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-variable.constant_ {
+  color: var(--color-orange);
+}
+
+.hljs-title,
+.hljs-title.function_,
+.hljs-function .hljs-title,
+.hljs-section,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: var(--color-purple);
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-ruby .hljs-property {
+  color: var(--color-yellow);
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-template-variable,
+.hljs-variable,
+.hljs-deletion {
+  color: var(--color-red);
+}
+
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule {
+  color: var(--color-purple);
+  font-style: italic;
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: var(--color-gray);
+}
+
+.hljs-comment {
+  color: #808080;
+  font-style: italic;
+}
+
+.hljs-operator,
+.hljs-punctuation,
+.hljs-subst {
+  color: #e5e5e5;
+}
+
+.hljs-emphasis { font-style: italic; }
+.hljs-strong   { font-weight: 700; }
