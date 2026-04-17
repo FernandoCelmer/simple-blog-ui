@@ -1,0 +1,37 @@
+import { Meta, Primary, Controls, Stories } from '@storybook/blocks';
+import { FrameworkTabs } from '../../../../.storybook/FrameworkTabs.jsx';
+import * as S from './sb-icon-button.stories.js';
+
+<Meta of={S} />
+
+# Icon Button
+
+Square icon-only button with `solid`, `outline`, and `ghost` variants plus three sizes. Expose accessibility via `label`. Emits `sb-click`.
+
+## Usage
+
+<FrameworkTabs
+  html={`<sb-icon-button variant="outline" size="md" label="Add">
+  <span aria-hidden="true">+</span>
+</sb-icon-button>`}
+  react={`import { IconButton } from 'simple-blog-ui/react';
+
+<IconButton variant="outline" size="md" label="Add" onClick={fn}>
+  +
+</IconButton>`}
+  vue={`<sb-icon-button variant="outline" size="md" label="Add" @sb-click="fn">
+  +
+</sb-icon-button>`}
+/>
+
+## Primary
+
+<Primary />
+
+## Controls
+
+<Controls />
+
+## Stories
+
+<Stories />
