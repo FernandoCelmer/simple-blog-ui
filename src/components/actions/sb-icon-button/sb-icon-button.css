@@ -1,0 +1,63 @@
+:host {
+  display: inline-block;
+  font-family: "Fira Mono", monospace;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--primary);
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+button[data-size='sm'] {
+  width: 2.8rem;
+  height: 2.8rem;
+  font-size: 1.2rem;
+}
+button[data-size='md'] {
+  width: 3.6rem;
+  height: 3.6rem;
+  font-size: 1.4rem;
+}
+button[data-size='lg'] {
+  width: 4.4rem;
+  height: 4.4rem;
+  font-size: 1.6rem;
+}
+
+button[data-variant='solid'] {
+  background-color: var(--primary);
+  color: var(--background);
+}
+button[data-variant='solid']:hover {
+  background-color: var(--background);
+  color: var(--primary);
+}
+
+button[data-variant='outline']:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+button[data-variant='ghost'] {
+  border-color: transparent;
+}
+button[data-variant='ghost']:hover {
+  background-color: #f1f1f1;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
