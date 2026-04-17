@@ -23,7 +23,7 @@ input {
   box-sizing: border-box;
   padding: 0.8rem 1rem;
   border: 2px solid var(--primary);
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--text);
   font-family: inherit;
   font-size: 1.4rem;

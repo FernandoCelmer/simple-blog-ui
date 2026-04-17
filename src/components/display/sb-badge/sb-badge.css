@@ -17,7 +17,7 @@
 }
 
 .badge[data-variant='outline'] {
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--primary);
 }
 

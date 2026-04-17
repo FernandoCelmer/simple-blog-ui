@@ -22,7 +22,7 @@
   width: 1.8rem;
   height: 1.8rem;
   border: 2px solid var(--primary);
-  background-color: var(--background);
+  background-color: var(--surface);
   display: inline-flex;
   align-items: center;
   justify-content: center;

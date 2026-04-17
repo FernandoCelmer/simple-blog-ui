@@ -4,7 +4,7 @@
   position: relative;
   overflow: hidden;
   border: 2px solid var(--primary);
-  background-color: var(--background);
+  background-color: var(--surface);
 }
 
 .track {
@@ -31,7 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--primary);
   border: 2px solid var(--primary);
   font-size: 1.6rem;
@@ -63,7 +63,7 @@
   cursor: pointer;
   width: 1rem;
   height: 1rem;
-  background-color: var(--background);
+  background-color: var(--surface);
   border: 2px solid var(--primary);
 }
 

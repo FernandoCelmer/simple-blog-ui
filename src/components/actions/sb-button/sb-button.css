@@ -36,12 +36,12 @@ button[data-variant='primary'] {
   color: var(--background);
 }
 button[data-variant='primary']:hover {
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--primary);
 }
 
 button[data-variant='secondary'] {
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--primary);
 }
 button[data-variant='secondary']:hover {
@@ -64,7 +64,7 @@ button[data-variant='danger'] {
   border-color: var(--color-red);
 }
 button[data-variant='danger']:hover {
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--color-red);
 }
 

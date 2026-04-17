@@ -13,7 +13,7 @@
   display: none;
   min-width: 18rem;
   max-width: 30rem;
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--text);
   border: 2px solid var(--primary);
   z-index: 200;

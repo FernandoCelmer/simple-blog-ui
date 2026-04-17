@@ -10,7 +10,7 @@ button {
   align-items: center;
   justify-content: center;
   border: 2px solid var(--primary);
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--text);
   transition: background-color 120ms ease, color 120ms ease;
 }
@@ -36,7 +36,7 @@ button[data-variant='solid'] {
   color: var(--background);
 }
 button[data-variant='solid']:hover {
-  background-color: var(--background);
+  background-color: var(--surface);
   color: var(--primary);
 }
 

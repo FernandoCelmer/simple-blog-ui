@@ -2,7 +2,7 @@
   display: block;
   font-family: "Fira Mono", monospace;
   border: 2px solid var(--primary);
-  background-color: var(--background);
+  background-color: var(--surface);
 }
 
 .item {
@@ -25,7 +25,7 @@
   letter-spacing: 0.1rem;
   font-size: 1.2rem;
   color: var(--text);
-  background-color: var(--background);
+  background-color: var(--surface);
   box-sizing: border-box;
   transition: background-color 120ms ease;
 }
