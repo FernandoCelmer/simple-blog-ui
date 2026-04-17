@@ -4,23 +4,25 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
 
 # Colors
 
-Tokens from `src/styles/root.css` — the same palette used by `mkdocs-simple-blog`.
+All tokens live in [`src/styles/root.css`](https://github.com/FernandoCelmer/simple-blog-ui/blob/master/src/styles/root.css). Components never reference raw hex values — they consume these CSS custom properties.
+
+## Brand palette
+
+Inherited verbatim from [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog)'s `root.css`. These fixed accents do **not** flip between themes.
 
 <ColorPalette>
   <ColorItem
     title="Core"
-    subtitle="Black / white / gray / primary surfaces"
+    subtitle="Black / white / gray"
     colors={{
-      text: '#000000',
-      title: '#000000',
-      primary: '#000000',
-      background: '#ffffff',
+      'color-black': '#000000',
+      'color-white': '#ffffff',
       'color-gray': '#808080',
     }}
   />
   <ColorItem
     title="Accents"
-    subtitle="Used for state and semantic emphasis"
+    subtitle="Semantic and decorative colors"
     colors={{
       'color-blue': '#4051b5',
       'color-green': '#4cae4f',
@@ -32,7 +34,120 @@ Tokens from `src/styles/root.css` — the same palette used by `mkdocs-simple-bl
   />
 </ColorPalette>
 
-## Using the tokens
+## Theme tokens (flip with `data-theme`)
+
+These tokens flip automatically between light and dark. Components use them for borders, text, and backgrounds to stay readable under any theme.
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Token</th>
+      <th align="left">Light</th>
+      <th align="left">Dark</th>
+      <th align="left">Used for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--background</code></td>
+      <td><code>#ffffff</code></td>
+      <td><code>#0b0f19</code></td>
+      <td>Page / component background</td>
+    </tr>
+    <tr>
+      <td><code>--text</code></td>
+      <td><code>#000000</code></td>
+      <td><code>#e5e5e5</code></td>
+      <td>Body copy</td>
+    </tr>
+    <tr>
+      <td><code>--title</code></td>
+      <td><code>#000000</code></td>
+      <td><code>#ffffff</code></td>
+      <td>Headings</td>
+    </tr>
+    <tr>
+      <td><code>--primary</code></td>
+      <td><code>#000000</code></td>
+      <td><code>#ffffff</code></td>
+      <td>Borders, primary buttons, active states</td>
+    </tr>
+  </tbody>
+</table>
+
+## Semantic tokens
+
+Derived tokens for specific UI roles. They flip with the theme too.
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Token</th>
+      <th align="left">Light</th>
+      <th align="left">Dark</th>
+      <th align="left">Used for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--bg-subtle</code></td>
+      <td><code>#f1f1f1</code></td>
+      <td><code>#1a1f2e</code></td>
+      <td>Hover backgrounds (ghost buttons, rows)</td>
+    </tr>
+    <tr>
+      <td><code>--border-subtle</code></td>
+      <td><code>#dcdcdc</code></td>
+      <td><code>#2a3042</code></td>
+      <td>Low-emphasis dividers (`sb-divider[thin]`, blockquote)</td>
+    </tr>
+    <tr>
+      <td><code>--text-muted</code></td>
+      <td><code>#5c5c5c</code></td>
+      <td><code>#a0a0a0</code></td>
+      <td>Captions, hints, secondary text</td>
+    </tr>
+    <tr>
+      <td><code>--backdrop</code></td>
+      <td><code>rgba(0,0,0,0.6)</code></td>
+      <td><code>rgba(255,255,255,0.15)</code></td>
+      <td>Modal / offcanvas backdrop</td>
+    </tr>
+    <tr>
+      <td><code>--code-bg</code></td>
+      <td><code>#000000</code></td>
+      <td><code>#1a1f2e</code></td>
+      <td>Inline code and code block bg (stays dark in both themes — terminal aesthetic)</td>
+    </tr>
+    <tr>
+      <td><code>--code-fg</code></td>
+      <td><code>#f5f5f5</code></td>
+      <td><code>#f5f5f5</code></td>
+      <td>Code text</td>
+    </tr>
+  </tbody>
+</table>
+
+## Overriding tokens
+
+Override any token on `:root` to re-theme the library globally:
+
+```css
+:root {
+  --primary: #1e40af;
+  --color-red: #b91c1c;
+}
+```
+
+Or scope overrides to a subtree by setting them on a parent element:
+
+```css
+.compact {
+  --bg-subtle: #e5e5e5;
+}
+```
+
+## Example usage
 
 ```css
 .my-element {
@@ -41,7 +156,7 @@ Tokens from `src/styles/root.css` — the same palette used by `mkdocs-simple-bl
   border: 2px solid var(--primary);
 }
 
-.alert--error {
+.my-alert--error {
   border-color: var(--color-red);
   color: var(--color-red);
 }
