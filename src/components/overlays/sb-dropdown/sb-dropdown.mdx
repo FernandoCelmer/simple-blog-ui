@@ -1,0 +1,63 @@
+import { Meta, Primary, Controls, Stories } from '@storybook/blocks';
+import { FrameworkTabs } from '../../../../.storybook/FrameworkTabs.jsx';
+import * as S from './sb-dropdown.stories.js';
+
+<Meta of={S} />
+
+# Dropdown
+
+Menu triggered by a slotted element. Pass `items` as an array of `{ id, label, disabled? }`. Emits `sb-select` when a menu item is chosen. Use `align="right"` to right-align the menu.
+
+## Usage
+
+<FrameworkTabs
+  html={`<sb-dropdown id="dd">
+  <sb-button slot="trigger">Actions ▾</sb-button>
+</sb-dropdown>
+
+<script>
+  const dd = document.getElementById('dd');
+  dd.items = [
+    { id: 'edit', label: 'Edit' },
+    { id: 'duplicate', label: 'Duplicate' },
+    { id: 'delete', label: 'Delete', disabled: true },
+  ];
+  dd.addEventListener('sb-select', (e) => console.log(e.detail.id));
+</script>`}
+  react={`import { Dropdown, Button } from 'simple-blog-ui/react';
+
+const items = [
+  { id: 'edit', label: 'Edit' },
+  { id: 'duplicate', label: 'Duplicate' },
+  { id: 'delete', label: 'Delete', disabled: true },
+];
+
+<Dropdown items={items} onSelect={(e) => console.log(e.detail.id)}>
+  <Button slot="trigger">Actions ▾</Button>
+</Dropdown>`}
+  vue={`<script setup>
+const items = [
+  { id: 'edit', label: 'Edit' },
+  { id: 'duplicate', label: 'Duplicate' },
+  { id: 'delete', label: 'Delete', disabled: true },
+];
+</script>
+
+<template>
+  <sb-dropdown :items.prop="items" @sb-select="onSelect">
+    <sb-button slot="trigger">Actions ▾</sb-button>
+  </sb-dropdown>
+</template>`}
+/>
+
+## Primary
+
+<Primary />
+
+## Controls
+
+<Controls />
+
+## Stories
+
+<Stories />
