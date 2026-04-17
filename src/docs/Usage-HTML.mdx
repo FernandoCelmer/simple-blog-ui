@@ -1,0 +1,111 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Usage/HTML" />
+
+# Using simple-blog-ui in plain HTML
+
+The library ships native Web Components — no framework required. Drop a `<script type="module">` and start using `<sb-*>` tags.
+
+## From a bundler (Vite, webpack, etc.)
+
+```bash
+npm install simple-blog-ui
+```
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <script type="module">
+      import 'simple-blog-ui';
+    </script>
+    <link rel="stylesheet" href="/node_modules/simple-blog-ui/dist/simple-blog-ui.css" />
+  </head>
+  <body>
+    <sb-button variant="primary">Click me</sb-button>
+  </body>
+</html>
+```
+
+## From a CDN
+
+Any ESM-capable CDN (esm.sh, jsDelivr, unpkg) works out of the box:
+
+```html
+<script type="module" src="https://esm.sh/simple-blog-ui"></script>
+<link rel="stylesheet" href="https://esm.sh/simple-blog-ui/style.css" />
+
+<sb-button variant="primary">Click me</sb-button>
+```
+
+## Event handling
+
+Custom events follow the `sb-<name>` pattern. Use `addEventListener` directly:
+
+```html
+<sb-button id="btn" variant="primary">Click me</sb-button>
+
+<script type="module">
+  import 'simple-blog-ui';
+
+  document.getElementById('btn').addEventListener('sb-click', () => {
+    console.log('clicked');
+  });
+</script>
+```
+
+## Setting properties vs attributes
+
+String/number/boolean props are settable via HTML attributes:
+
+```html
+<sb-button variant="primary" disabled>Disabled</sb-button>
+<sb-input label="Email" placeholder="you@example.com"></sb-input>
+```
+
+Array/object props (e.g. `sb-tabs`' `tabs`, `sb-pagination`'s navigation state) must be set via JS property:
+
+```html
+<sb-tabs id="tabs"></sb-tabs>
+
+<script type="module">
+  import 'simple-blog-ui';
+
+  document.getElementById('tabs').tabs = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'install', label: 'Install' },
+  ];
+</script>
+```
+
+## Triggering overlays imperatively
+
+Modal, Offcanvas, and Toast expose `show()` and `close()` methods:
+
+```html
+<sb-button id="open">Open modal</sb-button>
+<sb-modal id="dialog" title="Confirm">
+  Are you sure?
+</sb-modal>
+
+<script type="module">
+  import 'simple-blog-ui';
+
+  const dialog = document.getElementById('dialog');
+  document.getElementById('open').addEventListener('sb-click', () => dialog.show());
+</script>
+```
+
+## Theming
+
+Set `data-theme="dark"` on the `<html>` (or any ancestor) to flip to dark mode. Tokens live in `simple-blog-ui/tokens.css` — import if you need only the palette without the base stylesheet:
+
+```html
+<html data-theme="dark">
+  <head>
+    <link rel="stylesheet" href="/node_modules/simple-blog-ui/src/styles/root.css" />
+  </head>
+</html>
+```
+
+See **Design/Colors** and **Theming** for the full token list.
