@@ -2,7 +2,7 @@ import '../src/styles/root.css';
 import '../src/index.js';
 import mainCss from '../src/styles/main.css?inline';
 
-const THEME_BG = { light: '#ffffff', dark: '#0b0f19' };
+const THEME_BG = { light: '#ffffff', dark: '#000000' };
 const THEME_FG = { light: '#000000', dark: '#e5e5e5' };
 const MAIN_CSS_ID = 'sb-blog-main-css';
 
