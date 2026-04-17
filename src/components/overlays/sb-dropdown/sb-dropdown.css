@@ -1,0 +1,62 @@
+:host {
+  display: inline-block;
+  position: relative;
+  font-family: "Fira Mono", monospace;
+}
+
+.trigger-slot {
+  display: inline-block;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  min-width: 16rem;
+  background-color: var(--background);
+  border: 2px solid var(--primary);
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+:host([open]) .menu {
+  display: block;
+}
+
+:host([align='right']) .menu {
+  left: auto;
+  right: 0;
+}
+
+.item {
+  display: block;
+  padding: 0.8rem 1.2rem;
+  color: var(--text);
+  background-color: var(--background);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background-color 120ms ease, color 120ms ease;
+  border-bottom: 2px solid var(--primary);
+  box-sizing: border-box;
+}
+
+.item:last-child { border-bottom: none; }
+
+.item:hover,
+.item:focus-visible {
+  background-color: var(--primary);
+  color: var(--background);
+  outline: none;
+}
+
+.item[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
