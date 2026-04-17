@@ -1,0 +1,50 @@
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="Design/Typography" />
+
+# Typography
+
+Single family: **Fira Mono**, monospace. Font scale below matches the blog's `main.css`.
+
+<Typeset
+  fontSizes={[
+    '1.4rem',
+    '2rem',
+    '2.2rem',
+    '2.4rem',
+    '2.8rem',
+    '3.2rem',
+  ]}
+  fontWeight={400}
+  sampleText="The quick brown fox jumps over the lazy dog"
+  fontFamily='"Fira Mono", monospace'
+/>
+
+## Heading scale
+
+| Tag   | Size    |
+| ----- | ------- |
+| `h1`  | 3.2rem  |
+| `h2`  | 2.8rem  |
+| `h3`  | 2.4rem  |
+| `h4`  | 2.2rem  |
+| `h5`  | 2rem    |
+| `h6`  | 1.4rem  |
+
+Headings are **uppercase** with `letter-spacing: 0.0625em`.
+
+## Body
+
+- Family: `"Fira Mono", monospace`
+- Size: `1.2em` (root is 80% of default, so ~12.8px base)
+- Line height: `1.8em`
+- Letter spacing: `0.0625em`
+
+## Code
+
+```html
+<code>inline code</code>
+<pre><code>block code</code></pre>
+```
+
+`code` renders with `background: var(--primary)` (black) and `color: var(--background)` (white).

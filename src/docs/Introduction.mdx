@@ -1,0 +1,82 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# simple-blog-ui
+
+Framework-agnostic Web Components library for **simple-blog**. Built with [Lit](https://lit.dev/).
+Works with **plain HTML**, **React** (JS or TS), and **Vue**.
+
+## Design language
+
+Inherited from `mkdocs-simple-blog`:
+
+- Font: **Fira Mono** monospace
+- Palette: black + white with accent colors (blue, green, yellow, orange, purple, red)
+- Borders: 2px solid black
+- Uppercase headings and actions with `letter-spacing: 0.0625em`
+- No rounded corners — deliberate, rigid, document-first aesthetic
+
+## Component categories
+
+| Category      | Purpose                                          |
+| ------------- | ------------------------------------------------ |
+| **actions**   | Buttons and triggers                             |
+| **display**   | Cards, badges, avatars, lists                    |
+| **feedback**  | Alerts, spinners, progress, skeletons            |
+| **forms**     | Inputs, selects, checkboxes, fields              |
+| **layout**    | Containers, stacks, grids, dividers              |
+| **navigation**| Links, tabs, breadcrumbs, pagination, menus      |
+| **overlays**  | Modals, drawers, popovers, tooltips              |
+| **typography**| Headings, text, code                             |
+
+## Installation
+
+```bash
+npm install simple-blog-ui
+```
+
+## Usage
+
+### HTML
+
+```html
+<script type="module">
+  import 'simple-blog-ui';
+  import 'simple-blog-ui/style.css';
+</script>
+
+<sb-button variant="primary">Click me</sb-button>
+```
+
+### React (JS or TS)
+
+```jsx
+import 'simple-blog-ui';
+import 'simple-blog-ui/style.css';
+
+export default function App() {
+  return <sb-button variant="primary">Click me</sb-button>;
+}
+```
+
+For custom events (`sb-click`), use `useRef` + `addEventListener`.
+
+### Vue 3
+
+```vue
+<script setup>
+import 'simple-blog-ui';
+import 'simple-blog-ui/style.css';
+</script>
+
+<template>
+  <sb-button variant="primary" @sb-click="onClick">Click me</sb-button>
+</template>
+```
+
+In `vite.config`, mark `sb-*` as custom elements:
+
+```ts
+vue({ template: { compilerOptions: { isCustomElement: (t) => t.startsWith('sb-') } } });
+```
