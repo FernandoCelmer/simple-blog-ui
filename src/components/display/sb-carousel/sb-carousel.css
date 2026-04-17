@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--primary);
+  background-color: var(--background);
+}
+
+.track {
+  display: flex;
+  transition: transform 320ms ease;
+}
+
+::slotted(*) {
+  flex: 0 0 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.control {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  font-size: 1.6rem;
+  z-index: 2;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.control:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.control.prev { left: 1rem; }
+.control.next { right: 1rem; }
+
+.indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  z-index: 2;
+}
+
+.dot {
+  all: unset;
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--background);
+  border: 2px solid var(--primary);
+}
+
+.dot[aria-current='true'] {
+  background-color: var(--primary);
+}
