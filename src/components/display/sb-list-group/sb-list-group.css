@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+  border: 2px solid var(--primary);
+  background-color: var(--background);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.6rem;
+  border-bottom: 2px solid var(--primary);
+  color: var(--text);
+  line-height: 1.6em;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item[data-interactive='true'] {
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.item[data-interactive='true']:hover {
+  background-color: #f1f1f1;
+}
+
+.item[aria-current='true'] {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.item[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
