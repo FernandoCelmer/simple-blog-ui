@@ -1,0 +1,63 @@
+:host {
+  display: inline-block;
+  position: relative;
+  font-family: "Fira Mono", monospace;
+}
+
+.trigger-slot {
+  display: inline-block;
+}
+
+.bubble {
+  position: absolute;
+  display: none;
+  min-width: 18rem;
+  max-width: 30rem;
+  background-color: var(--background);
+  color: var(--text);
+  border: 2px solid var(--primary);
+  z-index: 200;
+  line-height: 1.6em;
+}
+
+:host([open]) .bubble {
+  display: block;
+}
+
+:host([placement='top']) .bubble {
+  bottom: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+:host([placement='bottom']) .bubble {
+  top: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+:host([placement='left']) .bubble {
+  top: 50%;
+  right: calc(100% + 0.6rem);
+  transform: translateY(-50%);
+}
+
+:host([placement='right']) .bubble {
+  top: 50%;
+  left: calc(100% + 0.6rem);
+  transform: translateY(-50%);
+}
+
+.title {
+  padding: 0.8rem 1.2rem;
+  border-bottom: 2px solid var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.content {
+  padding: 1rem 1.2rem;
+  font-size: 1.2rem;
+}
