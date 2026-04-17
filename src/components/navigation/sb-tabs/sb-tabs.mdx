@@ -1,0 +1,61 @@
+import { Meta, Primary, Controls, Stories } from '@storybook/blocks';
+import { FrameworkTabs } from '../../../../.storybook/FrameworkTabs.jsx';
+import * as S from './sb-tabs.stories.js';
+
+<Meta of={S} />
+
+# Tabs
+
+Horizontal tabbed container. Pass `tabs` as an array of `{ id, label }`. Content for each tab goes in a slot matching the tab `id`. Emits `sb-tab-change`.
+
+## Usage
+
+<FrameworkTabs
+  html={`<sb-tabs id="tabs">
+  <div slot="overview">Overview content.</div>
+  <div slot="install">Run <code>npm install</code>.</div>
+</sb-tabs>
+
+<script>
+  document.getElementById('tabs').tabs = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'install', label: 'Install' },
+  ];
+</script>`}
+  react={`import { Tabs } from 'simple-blog-ui/react';
+
+const tabs = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'install', label: 'Install' },
+];
+
+<Tabs tabs={tabs} onTabChange={(e) => console.log(e.detail.id)}>
+  <div slot="overview">Overview content.</div>
+  <div slot="install">Run <code>npm install</code>.</div>
+</Tabs>`}
+  vue={`<script setup>
+const tabs = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'install', label: 'Install' },
+];
+</script>
+
+<template>
+  <sb-tabs :tabs.prop="tabs" @sb-tab-change="onTabChange">
+    <div slot="overview">Overview content.</div>
+    <div slot="install">Run <code>npm install</code>.</div>
+  </sb-tabs>
+</template>`}
+/>
+
+## Primary
+
+<Primary />
+
+## Controls
+
+<Controls />
+
+## Stories
+
+<Stories />
