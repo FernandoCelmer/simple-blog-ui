@@ -1,0 +1,58 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+  color: var(--title);
+}
+
+input {
+  all: unset;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--primary);
+  background-color: var(--background);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1.4rem;
+  line-height: 1.6em;
+}
+
+input::placeholder {
+  color: var(--color-gray);
+}
+
+input:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hint {
+  font-size: 1rem;
+  color: var(--color-gray);
+}
+
+.hint[data-state='error'] {
+  color: var(--color-red);
+}
+
+:host([invalid]) input {
+  border-color: var(--color-red);
+}
