@@ -19,6 +19,18 @@ const config = {
     if (process.env.STORYBOOK_BASE_URL) {
       config.base = process.env.STORYBOOK_BASE_URL;
     }
+
+    config.build = config.build || {};
+    config.build.rollupOptions = config.build.rollupOptions || {};
+    config.build.rollupOptions.treeshake = {
+      moduleSideEffects: (id) => {
+        if (id.includes('/src/components/') && id.endsWith('.js')) {
+          return true;
+        }
+        return 'no-external';
+      },
+    };
+
     return config;
   },
 };
