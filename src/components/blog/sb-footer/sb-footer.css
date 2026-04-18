@@ -1,0 +1,20 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+  color: var(--text);
+  margin-top: 3rem;
+  padding: 2rem 0 1rem;
+  border-top: 1px solid var(--primary);
+  text-align: center;
+}
+
+.item {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+::slotted(small),
+::slotted(.item) {
+  display: block;
+  margin-bottom: 1rem;
+}
