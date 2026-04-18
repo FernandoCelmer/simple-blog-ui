@@ -1,0 +1,53 @@
+import { Meta, Primary, Controls, Stories } from '@storybook/blocks';
+import { FrameworkTabs } from '../../../../.storybook/FrameworkTabs.jsx';
+import * as S from './sb-page-layout.stories.js';
+
+<Meta of={S} />
+
+# PageLayout
+
+Blog page container with optional sidebar. 280px sidebar + fluid content. Collapses to single column on mobile or with `no-sidebar`.
+
+## Slots
+
+- `header` — top navbar
+- `sidebar` — left column (280px)
+- default — main content (right column)
+- `footer` — bottom section
+
+## Usage
+
+<FrameworkTabs
+  html={`<sb-page-layout>
+  <nav slot="header">...</nav>
+  <aside slot="sidebar">...</aside>
+  <article>Content</article>
+  <footer slot="footer">...</footer>
+</sb-page-layout>`}
+  react={`import { PageLayout } from 'simple-blog-ui/react';
+
+<PageLayout>
+  <nav slot="header">...</nav>
+  <aside slot="sidebar">...</aside>
+  <article>Content</article>
+  <footer slot="footer">...</footer>
+</PageLayout>`}
+  vue={`<sb-page-layout>
+  <nav slot="header">...</nav>
+  <aside slot="sidebar">...</aside>
+  <article>Content</article>
+  <footer slot="footer">...</footer>
+</sb-page-layout>`}
+/>
+
+## Primary
+
+<Primary />
+
+## Controls
+
+<Controls />
+
+## Stories
+
+<Stories />
