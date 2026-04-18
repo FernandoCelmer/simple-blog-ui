@@ -2,6 +2,7 @@ import hljs from 'highlight.js/lib/common';
 import hljsTheme from './styles/hljs-theme.css?inline';
 
 export * from './components/actions/index.js';
+export * from './components/blog/index.js';
 export * from './components/display/index.js';
 export * from './components/feedback/index.js';
 export * from './components/forms/index.js';
