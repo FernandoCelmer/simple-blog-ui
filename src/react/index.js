@@ -9,6 +9,7 @@ import {
   SbAlert, SbSpinner, SbProgress, SbToast,
   SbLink, SbTabs, SbNav, SbNavbar, SbBreadcrumb, SbPagination,
   SbModal, SbTooltip, SbDropdown, SbOffcanvas, SbPopover,
+  SbSidebar, SbPrevNext, SbFooter, SbPageLayout, SbPostList, SbProfile, SbErrorPage,
 } from '../index.js';
 
 export const Button = createComponent({
@@ -255,5 +256,47 @@ export const Offcanvas = createComponent({
 export const Popover = createComponent({
   tagName: 'sb-popover',
   elementClass: SbPopover,
+  react: React,
+});
+
+export const Sidebar = createComponent({
+  tagName: 'sb-sidebar',
+  elementClass: SbSidebar,
+  react: React,
+});
+
+export const PrevNext = createComponent({
+  tagName: 'sb-prev-next',
+  elementClass: SbPrevNext,
+  react: React,
+});
+
+export const Footer = createComponent({
+  tagName: 'sb-footer',
+  elementClass: SbFooter,
+  react: React,
+});
+
+export const PageLayout = createComponent({
+  tagName: 'sb-page-layout',
+  elementClass: SbPageLayout,
+  react: React,
+});
+
+export const PostList = createComponent({
+  tagName: 'sb-post-list',
+  elementClass: SbPostList,
+  react: React,
+});
+
+export const Profile = createComponent({
+  tagName: 'sb-profile',
+  elementClass: SbProfile,
+  react: React,
+});
+
+export const ErrorPage = createComponent({
+  tagName: 'sb-error-page',
+  elementClass: SbErrorPage,
   react: React,
 });
