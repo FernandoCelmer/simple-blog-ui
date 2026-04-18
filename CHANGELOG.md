@@ -2,6 +2,21 @@
 
 All notable changes to `simple-blog-ui` are documented here. Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [SemVer](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.2] — 2026-04-18
+
+### Added
+
+- Cover image at the top of the README.
+
+### Changed
+
+- README refreshed: badges (HTML/React/Vue/Lit/Storybook/highlight.js), updated component count to 45 across 9 categories, and a dedicated section documenting the Blog primitives.
+
+### Fixed
+
+- Marked `src/**/*.js` as having side effects so bundlers do not tree-shake `customElements.define` calls.
+- Preserved `customElements.define` side effects in the Storybook build.
+
 ## [0.1.0] — 2026-04-17
 
 ### First public release 🚀
