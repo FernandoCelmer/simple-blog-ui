@@ -1,6 +1,6 @@
 {
   "name": "simple-blog-ui",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Terminal-style UI component library for simple-blog. 38 Web Components that work in plain HTML, React, and Vue. Built with Lit. Monospace, uppercase, 2px solid borders, zero rounded corners.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -75,8 +75,12 @@
     "react-dom": ">=17.0.0"
   },
   "peerDependenciesMeta": {
-    "react": { "optional": true },
-    "react-dom": { "optional": true }
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^8.3.5",
