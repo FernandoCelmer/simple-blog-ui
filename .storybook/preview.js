@@ -50,6 +50,18 @@ const preview = {
       matchers: { color: /(background|color)$/i, date: /Date$/i },
     },
     backgrounds: { disable: true },
+    options: {
+      storySort: {
+        order: [
+          'Introduction',
+          'Usage',
+          ['HTML', 'React', 'Vue'],
+          'Design',
+          ['Colors', 'Typography'],
+          'Components',
+        ],
+      },
+    },
   },
   globalTypes: {
     theme: {

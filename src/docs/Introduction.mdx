@@ -4,20 +4,103 @@ import { Meta } from '@storybook/blocks';
 
 # simple-blog-ui
 
-Framework-agnostic UI component library for **simple-blog**. Built with [Lit](https://lit.dev/) (Web Components). Works with **plain HTML**, **React** (JS or TS), and **Vue**.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/FernandoCelmer/simple-blog-ui/master/simple-blog-ui.png" alt="simple-blog-ui" width="100%" />
+</p>
 
-## Design language
+**The UI kit for your terminal-style blog.**
 
-Inherited from [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog):
+A framework-agnostic component library built with [Lit](https://lit.dev/) — drop it into plain HTML, React, or Vue and get 45 Web Components styled after [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog): Fira Mono, uppercase, 2px borders, zero rounded corners. The kind of UI that looks like it was typeset on a Selectric.
 
-- Font: **Fira Mono** monospace
-- Palette: black + white with accent colors (blue, green, yellow, orange, purple, red)
-- Borders: 2px solid black
-- Uppercase headings, buttons, and nav labels with `letter-spacing: 0.0625em`
-- No rounded corners — deliberate, rigid, document-first aesthetic
-- Light and dark themes via `data-theme` attribute
+<p align="center">
+  <a href="https://www.npmjs.com/package/simple-blog-ui"><img src="https://img.shields.io/npm/v/simple-blog-ui?style=flat-square&color=000000&labelColor=000000" alt="npm" /></a>
+  <a href="https://fernandocelmer.github.io/simple-blog-ui/"><img src="https://img.shields.io/badge/storybook-live-000000?style=flat-square&labelColor=000000" alt="storybook" /></a>
+  <img src="https://img.shields.io/badge/license-MIT-000000?style=flat-square&labelColor=000000" alt="license" />
+</p>
 
-## 36 components across 8 categories
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML" />
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/Vue%203-4FC08D?style=flat-square&logo=vue.js&logoColor=white" alt="Vue" />
+  <img src="https://img.shields.io/badge/Lit-324FFF?style=flat-square&logo=lit&logoColor=white" alt="Lit" />
+  <img src="https://img.shields.io/badge/Storybook-FF4785?style=flat-square&logo=storybook&logoColor=white" alt="Storybook" />
+  <img src="https://img.shields.io/badge/highlight.js-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="highlight.js" />
+</p>
+
+## Why?
+
+- **One lib, three stacks.** Web Components are native — write them once, use them everywhere.
+- **Opinionated design, zero configuration.** The whole kit follows a single aesthetic: monospace terminal chic. No theme configuration required to look good.
+- **Dark mode baked in.** Flip `data-theme="dark"` on `<html>` and every component inverts correctly.
+- **Syntax highlighting included.** `<sb-code>` auto-highlights JavaScript, Python, Bash, JSON, HTML and 30+ more languages via highlight.js.
+- **Tiny.** ~5KB Lit runtime + per-component shadow DOM. No global CSS-in-JS bloat.
+- **React-first DX.** Official PascalCase wrappers via `simple-blog-ui/react` turn custom events (`sb-click`, `sb-change`) into native React handlers (`onClick`, `onChange`).
+- **Blog-ready.** Includes a dedicated **Blog** category with layout, sidebar, footer and prev/next primitives — drop-in building blocks for a documentation site.
+
+## Install
+
+```bash
+npm install simple-blog-ui
+```
+
+## Quick start
+
+Pick your stack for a focused integration guide:
+
+- **[Usage / HTML](?path=/docs/usage-html--docs)** — plain HTML, bundler or CDN
+- **[Usage / React](?path=/docs/usage-react--docs)** — PascalCase wrappers via `simple-blog-ui/react`
+- **[Usage / Vue](?path=/docs/usage-vue--docs)** — Vue 3 with `isCustomElement`
+
+### HTML
+
+```html
+<script type="module">
+  import 'simple-blog-ui';
+</script>
+<link rel="stylesheet" href="node_modules/simple-blog-ui/src/styles/main.css" />
+
+<sb-button variant="primary">Click me</sb-button>
+```
+
+### React
+
+```jsx
+import { Button, Input, Alert } from 'simple-blog-ui/react';
+import 'simple-blog-ui/style.css';
+
+export default function App() {
+  return (
+    <>
+      <Button variant="primary" onClick={() => alert('hi')}>Click me</Button>
+      <Input label="Email" onInput={(e) => console.log(e.detail.value)} />
+      <Alert variant="success" title="Saved">Done.</Alert>
+    </>
+  );
+}
+```
+
+### Vue 3
+
+```vue
+<script setup>
+import 'simple-blog-ui';
+import 'simple-blog-ui/style.css';
+</script>
+
+<template>
+  <sb-button variant="primary" @sb-click="onClick">Click me</sb-button>
+</template>
+```
+
+Tell Vue that `sb-*` is a custom element — add to your `vite.config`:
+
+```js
+vue({ template: { compilerOptions: { isCustomElement: (t) => t.startsWith('sb-') } } })
+```
+
+## Components
+
+**45 components · 9 categories · all in the same minimalist style.**
 
 <table>
   <thead>
@@ -45,8 +128,8 @@ Inherited from [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-s
     </tr>
     <tr>
       <td><strong>display</strong></td>
-      <td align="center">8</td>
-      <td><code>sb-card</code>, <code>sb-avatar</code>, <code>sb-badge</code>, <code>sb-tag</code>, <code>sb-accordion</code>, <code>sb-collapse</code>, <code>sb-list-group</code>, <code>sb-carousel</code></td>
+      <td align="center">9</td>
+      <td><code>sb-card</code>, <code>sb-avatar</code>, <code>sb-badge</code>, <code>sb-tag</code>, <code>sb-accordion</code>, <code>sb-collapse</code>, <code>sb-list-group</code>, <code>sb-carousel</code>, <code>sb-table</code></td>
     </tr>
     <tr>
       <td><strong>forms</strong></td>
@@ -68,62 +151,202 @@ Inherited from [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-s
       <td align="center">5</td>
       <td><code>sb-modal</code>, <code>sb-tooltip</code>, <code>sb-dropdown</code>, <code>sb-offcanvas</code>, <code>sb-popover</code></td>
     </tr>
+    <tr>
+      <td><strong>blog</strong></td>
+      <td align="center">7</td>
+      <td><code>sb-page-layout</code>, <code>sb-sidebar</code>, <code>sb-footer</code>, <code>sb-prev-next</code>, <code>sb-post-list</code>, <code>sb-profile</code>, <code>sb-error-page</code></td>
+    </tr>
   </tbody>
 </table>
 
-## Installation
+### Blog primitives
 
-```bash
-npm install simple-blog-ui
-```
+The `blog` category provides the building blocks for a documentation-style site (used in production by [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog)):
 
-## Usage
+<table>
+  <thead>
+    <tr>
+      <th align="left">Component</th>
+      <th align="left">What it does</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>sb-page-layout</code></td>
+      <td>Max-width container + 25/75 sidebar/content grid. Collapses to one column on mobile.</td>
+    </tr>
+    <tr>
+      <td><code>sb-sidebar</code></td>
+      <td>Nested TOC — pass <code>items</code> as JSON (supports unlimited depth).</td>
+    </tr>
+    <tr>
+      <td><code>sb-footer</code></td>
+      <td>Centered footer section with top border and stacked items.</td>
+    </tr>
+    <tr>
+      <td><code>sb-prev-next</code></td>
+      <td>3-column prev/next post navigation.</td>
+    </tr>
+    <tr>
+      <td><code>sb-post-list</code></td>
+      <td>Post index with date + title columns.</td>
+    </tr>
+    <tr>
+      <td><code>sb-profile</code></td>
+      <td>Centered about page — name, role, bio slot, social links.</td>
+    </tr>
+    <tr>
+      <td><code>sb-error-page</code></td>
+      <td>404/500 with oversized code + message and action slot.</td>
+    </tr>
+  </tbody>
+</table>
 
-Pick your stack for a focused integration guide:
+## React — event handling
 
-- **[Usage / HTML](?path=/docs/usage-html--docs)** — plain HTML, bundler or CDN
-- **[Usage / React](?path=/docs/usage-react--docs)** — PascalCase wrappers via `simple-blog-ui/react`
-- **[Usage / Vue](?path=/docs/usage-vue--docs)** — Vue 3 with `isCustomElement`
+Custom events map to standard React props. The `CustomEvent` payload lives at `event.detail`.
 
-Minimal React example:
+<table>
+  <thead>
+    <tr>
+      <th align="left">React prop</th>
+      <th align="left">Components</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>onClick</code></td><td>Button, IconButton</td></tr>
+    <tr><td><code>onChange</code></td><td>Input, Checkbox, Switch, Accordion</td></tr>
+    <tr><td><code>onInput</code></td><td>Input, Textarea</td></tr>
+    <tr><td><code>onClose</code></td><td>Modal, Offcanvas, Toast, CloseButton</td></tr>
+    <tr><td><code>onSelect</code></td><td>Dropdown, ListGroup</td></tr>
+    <tr><td><code>onPageChange</code></td><td>Pagination</td></tr>
+    <tr><td><code>onTabChange</code></td><td>Tabs</td></tr>
+    <tr><td><code>onDismiss</code></td><td>Alert</td></tr>
+    <tr><td><code>onRemove</code></td><td>Tag</td></tr>
+    <tr><td><code>onToggle</code></td><td>Collapse</td></tr>
+    <tr><td><code>onSlide</code></td><td>Carousel</td></tr>
+  </tbody>
+</table>
 
-```jsx
-import { Button, Input } from 'simple-blog-ui/react';
-import 'simple-blog-ui/style.css';
-
-<Button variant="primary" onClick={() => {}}>Click me</Button>
-<Input label="Email" onInput={(e) => console.log(e.detail.value)} />
-```
-
-Minimal Vue example:
-
-```vue
-<script setup>
-import 'simple-blog-ui';
-import 'simple-blog-ui/style.css';
-</script>
-
-<template>
-  <sb-button variant="primary" @sb-click="onClick">Click me</sb-button>
-</template>
-```
 
 ## Theming
 
-Two themes out of the box — toggle with the **Light / Dark** button in the Storybook toolbar above. In consumer apps, set `data-theme="dark"` on `<html>` to enable dark mode:
+Two themes out of the box — toggle with the **Light / Dark** button in the Storybook toolbar above. In consumer apps, set `data-theme="dark"` on `<html>`:
 
 ```html
 <html data-theme="dark"> ... </html>
 ```
 
-All components read their colors, spacing, and typography from CSS custom properties defined in `root.css`. Override any token on `:root` (or a scoped ancestor) to re-theme:
+Every component reads its colors and spacing from CSS custom properties defined in `root.css`. Override any of them to re-theme globally:
 
 ```css
 :root {
-  --primary: #1e40af;
-  --background: #fef3c7;
-  --color-red: #b91c1c;
+  --primary: #1e40af;        /* change primary accent */
+  --color-red: #b91c1c;      /* change error color */
+  --background: #fef3c7;     /* change page background */
 }
 ```
 
+**Core tokens** (inherited verbatim from `mkdocs-simple-blog`):
+
+```css
+--text: #000        --color-blue:   #4051b5
+--title: #000       --color-green:  #4cae4f
+--primary: #000     --color-yellow: #f1dc15
+--background: #fff  --color-orange: #ffa724
+--color-gray: #808080
+                    --color-purple: #ab47bd
+                    --color-red:    #ff2c06
+```
+
 See **Design / Colors** and **Design / Typography** for the full token map.
+
+## Why Web Components (and Lit)?
+
+The lib is built with [Lit](https://lit.dev/), which compiles to **standard Web Components** — native browser APIs. That means:
+
+- **No framework lock-in.** A `<sb-button>` is just an HTML element with Shadow DOM. It works in React, Vue, Svelte, Solid, Angular, plain HTML, or any future framework.
+- **Scoped styles.** Shadow DOM isolates each component's CSS — no class name collisions, no global leaks.
+- **Tiny runtime.** Lit is ~5KB gzip, loaded once for the whole library. No per-component bundle bloat.
+- **Future-proof.** Web Components are a W3C standard. Your investment survives framework churn.
+
+## How it compares
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Library</th>
+      <th align="left">Distribution</th>
+      <th align="left">Design system</th>
+      <th align="left">Dark mode</th>
+      <th align="left">Frameworks</th>
+      <th align="left">Blog primitives</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>simple-blog-ui</strong></td>
+      <td>npm (ESM + CJS)</td>
+      <td>Monospace, B&amp;W, 2px borders</td>
+      <td>yes</td>
+      <td>HTML, React, Vue</td>
+      <td>yes — Page layout, TOC, Prev/Next</td>
+    </tr>
+    <tr>
+      <td><a href="https://shoelace.style/">Shoelace</a></td>
+      <td>npm</td>
+      <td>Modern, rounded</td>
+      <td>yes</td>
+      <td>all via WC</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td><a href="https://mui.com/">MUI</a></td>
+      <td>npm</td>
+      <td>Material Design</td>
+      <td>yes</td>
+      <td>React only</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td><a href="https://chakra-ui.com/">Chakra UI</a></td>
+      <td>npm</td>
+      <td>Clean, rounded</td>
+      <td>yes</td>
+      <td>React only</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td><a href="https://ui.shadcn.com/">shadcn/ui</a></td>
+      <td>copy-paste</td>
+      <td>Opinionated</td>
+      <td>yes</td>
+      <td>React only</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+
+**When to pick simple-blog-ui** — you want a clean, opinionated monospace/terminal aesthetic, your app or blog is documentation-centric, or you want one lib that works across React and Vue without rewrites.
+
+## FAQ
+
+**Does it work with Next.js / Nuxt?** Yes. Register the components client-side (Next: in a client component; Nuxt: via a `.client.ts` plugin). Both frameworks support Web Components.
+
+**What about SSR?** Components render in the browser (Shadow DOM is client-side). The server sends the `<sb-*>` tags, the client hydrates. For pre-rendered HTML you can use [Lit SSR](https://lit.dev/docs/ssr/overview/) separately — not included here.
+
+**Is it tree-shakeable?** Individual components can be imported per-file in the React wrapper layer (`import { Button } from 'simple-blog-ui/react'`). The Web Component registrations in the main entry are side-effect imports — the full set is ~96KB gzipped.
+
+**Can I theme it?** Yes. All colors, fonts, spacing come from CSS custom properties. Override on `:root` to re-theme globally or on any parent for scoped overrides.
+
+**Is there a Figma kit?** Not yet.
+
+**How do I contribute?** Open an issue or PR at [github.com/FernandoCelmer/simple-blog-ui](https://github.com/FernandoCelmer/simple-blog-ui).
+
+## Credits
+
+Born as a React/Vue companion to [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog). Built with [Lit](https://lit.dev/) and [highlight.js](https://highlightjs.org/). React wrappers generated via [@lit/react](https://lit.dev/docs/frameworks/react/). Documented with [Storybook](https://storybook.js.org/).
+
+## License
+
+[MIT](https://github.com/FernandoCelmer/simple-blog-ui/blob/master/LICENSE) — Fernando Celmer
