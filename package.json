@@ -15,7 +15,8 @@
       "require": "./dist/react.cjs"
     },
     "./style.css": "./src/styles/main.css",
-    "./tokens.css": "./src/styles/root.css"
+    "./tokens.css": "./src/styles/root.css",
+    "./utilities.css": "./src/styles/utilities.css"
   },
   "files": [
     "dist",
