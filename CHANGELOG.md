@@ -17,9 +17,53 @@ All notable changes to `simple-blog-ui` are documented here. Format based on [Ke
 - Marked `src/**/*.js` as having side effects so bundlers do not tree-shake `customElements.define` calls.
 - Preserved `customElements.define` side effects in the Storybook build.
 
+## [0.4.1] — 2026-04-18
+
+### Fixed
+
+- `sb-page-layout` proportions and spacing for the sidebar/content grid.
+
+## [0.4.0] — 2026-04-18
+
+### Added — Blog category
+
+A new **Blog** category with seven primitives — drop-in building blocks for a documentation-style site (used in production by [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog)):
+
+- `sb-sidebar` — nested TOC component, `items` as JSON, supports unlimited depth.
+- `sb-prev-next` — 3-column previous/next post navigation.
+- `sb-footer` — centered footer section with top border and stacked items.
+- `sb-page-layout` — max-width container with 25/75 sidebar/content grid; collapses to one column on mobile.
+- `sb-post-list` — post index with date + title columns.
+- `sb-profile` — centered about page (name, role, bio slot, social links).
+- `sb-error-page` — 404/500 layout with oversized code, message and action slot.
+
+### Changed
+
+- Blog category exported from the main entry and from `simple-blog-ui/react`.
+- `utilities.css` extended with form reset and layout utilities.
+
+## [0.3.0] — 2026-04-17
+
+### Added
+
+- `simple-blog-ui/utilities.css` export with Bootstrap-compatible layout classes.
+- Auto-highlight for native `<pre><code>` blocks using bundled highlight.js and the matching theme.
+- Bootstrap-style `data-bs-toggle` handling for dropdown and collapse attributes from the lib entry (drop-in replacement for vanilla Bootstrap markup).
+- CHANGELOG following the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
+- README: comparison table, FAQ section, Storybook badge and link.
+
+### Changed
+
+- `package.json` keywords expanded; `homepage` and `bugs` fields added for better discoverability.
+
+### Infrastructure
+
+- GitHub Actions workflow to publish to npm on GitHub release (with prerelease tag detection).
+- GitHub Actions workflow to deploy Storybook to GitHub Pages on every push to `master`.
+
 ## [0.1.0] — 2026-04-17
 
-### First public release 🚀
+### First public release
 
 38 Web Components across 8 categories, styled after [`mkdocs-simple-blog`](https://github.com/FernandoCelmer/mkdocs-simple-blog).
 
@@ -56,4 +100,8 @@ All notable changes to `simple-blog-ui` are documented here. Format based on [Ke
 - Three usage guides in Storybook: Usage/HTML, Usage/React, Usage/Vue
 - Live documentation at [fernandocelmer.github.io/simple-blog-ui](https://fernandocelmer.github.io/simple-blog-ui/)
 
+[0.4.2]: https://github.com/FernandoCelmer/simple-blog-ui/releases/tag/v0.4.2
+[0.4.1]: https://github.com/FernandoCelmer/simple-blog-ui/releases/tag/v0.4.1
+[0.4.0]: https://github.com/FernandoCelmer/simple-blog-ui/releases/tag/v0.4.0
+[0.3.0]: https://github.com/FernandoCelmer/simple-blog-ui/releases/tag/v0.3.0
 [0.1.0]: https://github.com/FernandoCelmer/simple-blog-ui/releases/tag/v0.1.0
