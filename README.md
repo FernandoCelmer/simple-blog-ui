@@ -1,7 +1,7 @@
 # simple-blog-ui
 
 <p align="center">
-  <img src="./simple-blog-ui.png" alt="simple-blog-ui" width="100%">
+  <img src="https://raw.githubusercontent.com/FernandoCelmer/simple-blog-ui/master/simple-blog-ui.png" alt="simple-blog-ui" width="100%">
 </p>
 
 **The UI kit for your terminal-style blog.**
