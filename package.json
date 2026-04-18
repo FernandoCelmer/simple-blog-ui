@@ -25,6 +25,7 @@
   ],
   "sideEffects": [
     "**/*.css",
+    "./src/**/*.js",
     "./dist/index.js",
     "./dist/index.cjs"
   ],
