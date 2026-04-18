@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: "Fira Mono", monospace;
+  color: var(--text);
+}
+
+.error {
+  text-align: center;
+}
+
+.error h1 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 4.6rem;
+}
+
+.error h2 {
+  margin-top: 2rem;
+  margin-bottom: 3.2rem;
+  font-size: 3.2rem;
+}
+
+::slotted(a) {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+::slotted(a:hover) {
+  color: var(--primary);
+}
