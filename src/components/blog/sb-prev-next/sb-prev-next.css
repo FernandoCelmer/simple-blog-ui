@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  font-family: "Fira Mono", monospace;
+  color: var(--text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.slot {
+  display: block;
+}
+
+.slot a {
+  color: var(--text);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.slot a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
