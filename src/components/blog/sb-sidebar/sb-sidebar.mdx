@@ -1,0 +1,44 @@
+import { Meta, Primary, Controls, Stories } from '@storybook/blocks';
+import { FrameworkTabs } from '../../../../.storybook/FrameworkTabs.jsx';
+import * as S from './sb-sidebar.stories.js';
+
+<Meta of={S} />
+
+# Sidebar
+
+Nested sidebar navigation for docs/TOC. Accepts an `items` array where each item can have `title`, `url`, and optional `children`.
+
+## Usage
+
+<FrameworkTabs
+  html={`<sb-sidebar></sb-sidebar>
+<script>
+  document.querySelector('sb-sidebar').items = [
+    { title: 'Intro', url: '#intro' },
+    { title: 'Guide', url: '#guide', children: [
+      { title: 'Install', url: '#install' }
+    ]}
+  ];
+</script>`}
+  react={`import { Sidebar } from 'simple-blog-ui/react';
+
+<Sidebar items={[
+  { title: 'Intro', url: '#intro' },
+  { title: 'Guide', url: '#guide', children: [
+    { title: 'Install', url: '#install' }
+  ]}
+]} active="#install" />`}
+  vue={`<sb-sidebar :items="items" active="#install"></sb-sidebar>`}
+/>
+
+## Primary
+
+<Primary />
+
+## Controls
+
+<Controls />
+
+## Stories
+
+<Stories />
